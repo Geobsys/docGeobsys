@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc_geobsys=self.webpackChunkdoc_geobsys||[]).push([[734],{4414:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/docGeobsys/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

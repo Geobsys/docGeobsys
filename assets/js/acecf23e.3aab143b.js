@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc_geobsys=self.webpackChunkdoc_geobsys||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/docGeobsys/blog","blogTitle":"Blog","authorsListPath":"/docGeobsys/blog/authors"}')}}]);

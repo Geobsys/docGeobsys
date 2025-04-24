@@ -1,0 +1,33 @@
+---
+title: Bienvenue
+description: Page d'accueil de la documentation Geobsys.
+redirect: /fr/geostix/getting-started
+---
+
+Utilisez le menu à gauche pour naviguer dans les guides et tutoriels.
+> Commencez par [ce guide d'exemple](/guides/example).
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import LinkCard from './src/components/LinkCard.astro';
+
+<CardGrid>
+  <LinkCard 
+    title="GEOSTIX" 
+    href="/en/geostix/getting-started" 
+    description="Configure Starlight to support multiple languages."
+    imageLight="geostixContoursGray.png"
+    imageDark="geostixContoursWhite.png"
+    />
+  <LinkCard 
+    title="GEOSTIX LAYERS" 
+    href="/en/geostix-layers/getting-started"  
+    imageLight="geostixContoursGray.png"
+    imageDark="geostixContoursWhite.png"
+  />
+  <LinkCard 
+    title="GEOSTIX APP" 
+    href="/geostix-app/start" 
+    imageLight="geostixContoursGray.png"
+    imageDark="geostixContoursWhite.png"
+  />
+</CardGrid>

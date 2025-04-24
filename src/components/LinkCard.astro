@@ -1,0 +1,76 @@
+---
+// Props pour le composant
+const { title, href, description, imageLight, imageDark } = Astro.props;
+---
+
+<a href={href} class="link-card">
+  <div class="image-wrapper">
+    <img src={`/images/${imageLight}`} alt={title} class="image image-light" loading="lazy" />
+    <img src={`/images/${imageDark}`} alt={title} class="image image-dark" loading="lazy" />
+  </div>
+  <div class="content">
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+  </div>
+</a>
+
+<style>
+  .link-card {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+    border-color: var(--sl-color-gray-2);
+  }
+  .image-wrapper {
+    position: relative;
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .image.light {
+    display: block;
+  }
+
+  html[data-theme='dark'] .image-light {
+    display: none;
+  }
+
+  html[data-theme='dark'] .image-dark {
+    display: block;
+  }
+
+
+
+  .link-card-content {
+    padding: 1rem;
+  }
+
+  .link-card-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: var(--sl-text-lg);
+    font-weight: 600;
+  }
+
+  .link-card-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--sl-color-gray-3);
+	line-height: 1.5;
+  }
+</style>

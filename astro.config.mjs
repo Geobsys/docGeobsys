@@ -66,11 +66,11 @@ export default defineConfig({
               },
               {
                 label: 'Etages capteurs',
-                link: '/geostix-layers/getting-started/',
+                link: '/geostix_layers/getting-started/',
                 icon: 'document',
                 items: [
-                  { label: 'Start Here', items: ['geostix-layers/getting-started', 'geostix-layers/configuration'] },
-                  { label: 'Guides', autogenerate: { directory: 'geostix-layers/guides' } },
+                  { label: 'Start Here', items: ['geostix_layers/getting-started', 'geostix_layers/configuration'] },
+                  { label: 'Guides', autogenerate: { directory: 'geostix_layers/guides' } },
                 ],
                 badge: {
                   text: {
@@ -82,11 +82,11 @@ export default defineConfig({
               },
               {
                 label: 'Geostix APP',
-                link: '/geostix-app/getting-started/',
+                link: '/geostix_app/getting-started/',
                 icon: 'document',
                 items: [
-                  { label: 'Start Here', items: ['geostix-app/getting-started', 'geostix-app/configuration'] },
-                  { label: 'Guides', autogenerate: { directory: 'geostix-app/guides' } },
+                  { label: 'Start Here', items: ['geostix_app/getting-started', 'geostix_app/configuration'] },
+                  { label: 'Guides', autogenerate: { directory: 'geostix_app/guides' } },
                 ],
                 badge: {
                   text: {

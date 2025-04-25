@@ -7,6 +7,7 @@ import starlightSidebarTopics from 'starlight-sidebar-topics'
 export default defineConfig({
     site: 'https://geobsys.github.io',
   	base: process.env.NODE_ENV === 'production' ? '/docGeobsys' : '/',
+    //base: '/docGeobsys',
     integrations: [starlight({
         title: 'GEOBSYS Docs',
         // Set English as the default language for this site.
@@ -47,8 +48,9 @@ export default defineConfig({
         },
         customCss: [
             // Relative path to your custom CSS file
+            './src/styles/landing.css',
             './src/styles/custom.css',
-            '@fontsource/montserrat/100.css'
+            '@fontsource/montserrat/100.css',
         ],
         plugins: [
           starlightSidebarTopics(

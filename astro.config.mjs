@@ -62,7 +62,6 @@ export default defineConfig({
                 items: [
                   { label: 'Start Here', items: ['geostix/getting-started', 'geostix/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
-                  { label: 'Resources', items: [{ label: 'Plugins and Tools', slug: 'geostix/resources/starlight' }] },
                 ],
               },
               {
@@ -72,7 +71,6 @@ export default defineConfig({
                 items: [
                   { label: 'Start Here', items: ['geostix-layers/getting-started', 'geostix-layers/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix-layers/guides' } },
-                  { label: 'Resources', items: [{ label: 'Plugins and Tools', slug: 'geostix-layers/resources/starlight' }] },
                 ],
                 badge: {
                   text: {
@@ -89,7 +87,6 @@ export default defineConfig({
                 items: [
                   { label: 'Start Here', items: ['geostix-app/getting-started', 'geostix-app/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix-app/guides' } },
-                  { label: 'Resources', items: [{ label: 'Plugins and Tools', slug: 'geostix-app/resources/starlight' }] },
                 ],
                 badge: {
                   text: {

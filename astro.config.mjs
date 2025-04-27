@@ -56,7 +56,10 @@ export default defineConfig({
           starlightSidebarTopics(
             [
               {
-                label: 'Geostix',
+                label: {
+                  fr: 'GEOSTIX',
+                  en: 'GEOSTIX',
+                },
                 link: '/geostix/getting-started/',
                 icon: 'document',
                 items: [
@@ -65,7 +68,10 @@ export default defineConfig({
                 ],
               },
               {
-                label: 'Etages capteurs',
+                label: {
+                  fr: 'ETAGES CAPTEURS',
+                  en: 'GEOSTIX LAYERS',
+                },
                 link: '/geostix_layers/getting-started/',
                 icon: 'document',
                 items: [
@@ -81,7 +87,10 @@ export default defineConfig({
                 },
               },
               {
-                label: 'Geostix APP',
+                label: {
+                  fr: 'GEOSTIX APP',
+                  en: 'GEOSTIX APP',
+                },
                 link: '/geostix_app/getting-started/',
                 icon: 'document',
                 items: [

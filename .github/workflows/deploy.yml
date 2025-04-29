@@ -30,14 +30,10 @@ jobs:
       - name: Install, build, and upload your site output
         uses: withastro/action@v4
 
-      - name: Display node_modules path
+      - name: Override files (icon.ts topics.astro...)
         run: |
-          echo "Current directory:"
-          pwd
-          echo "node_modules path1:"
-          ls /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components/
-          echo "node_modules path2:"
-          ls ./node_modules/@astrojs/starlight/components/
+          cp /home/runner/work/docGeobsys/docGeobsys/override/Icon.ts /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components/Icon.ts
+          cp /home/runner/work/docGeobsys/docGeobsys/override/Topics.astro /home/runner/work/docGeobsys/docGeobsys/node_modules/starlight-sidebar-topics/components/Topics.astro
           
   deploy:
     needs: build

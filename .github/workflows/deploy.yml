@@ -21,23 +21,28 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      
-        
-     # - name: Copy modified Icon.ts to node_modules
-     #   run: |
-     #     cp node_modules/@astrojs/starlight/components/Icon.ts node_modules/@astrojs/starlight/components/Icon.ts
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
-      - name: Install, build, and upload your site output
-        uses: withastro/action@v4
+      - name: Install dependencies
+        run: npm install
 
       - name: Override files (icon.ts topics.astro...)
         run: |
-          ls /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components
-          echo "---------------"
-          ls ./node_modules
-          echo "---------------"
           cp /home/runner/work/docGeobsys/docGeobsys/src/override_github/Icons.ts ./node_modules/@astrojs/starlight/components/Icons.ts
           cp /home/runner/work/docGeobsys/docGeobsys/src/override_github/Topics.astro ./node_modules/starlight-sidebar-topics/components/Topics.astro
+
+      - name: Build the Astro site
+        run: npm run build
+
+      - name: Upload the build output
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
+
+      
           
   deploy:
     needs: build

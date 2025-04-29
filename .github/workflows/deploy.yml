@@ -20,10 +20,17 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-        
-      - name: Copy modified Icon.ts to node_modules
+
+      - name: Display node_modules path
         run: |
-          cp node_modules/@astrojs/starlight/components/Icon.ts node_modules/@astrojs/starlight/components/Icon.ts
+          echo "Current directory:"
+          pwd
+          echo "node_modules path:"
+          find . -name "node_modules" -type d
+        
+     # - name: Copy modified Icon.ts to node_modules
+     #   run: |
+     #     cp node_modules/@astrojs/starlight/components/Icon.ts node_modules/@astrojs/starlight/components/Icon.ts
 
       - name: Install, build, and upload your site output
         uses: withastro/action@v4

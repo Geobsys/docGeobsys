@@ -33,7 +33,7 @@ export default defineConfig({
             // Relative path to your custom CSS file
             './src/styles/landing.css',
             './src/styles/custom.css',
-            '@fontsource/montserrat/500.css',
+            '@fontsource/montserrat/400.css',
         ],
         plugins: [
           starlightSidebarTopics(
@@ -46,7 +46,7 @@ export default defineConfig({
                 link: '/geostix',
                 icon: 'geostixIcon',
                 items: [
-                  'geostix',
+                  //'geostix',
                   { label: 'Pour commencer', items: ['geostix/quick_guide', 'geostix/communication'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
                 ],

@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightSidebarTopics from 'starlight-sidebar-topics'
 
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://geobsys.github.io',
@@ -23,24 +24,6 @@ export default defineConfig({
             lang: 'fr',
           },
         },
-        /*sidebar: [
-          {
-            label: 'Start Here',
-            items: [
-              // Using `slug` for internal links.
-              { slug: 'geostix/start' },
-              { slug: 'geostix-app/start' },
-              // Or using the shorthand for internal links.
-              'geostix/start',
-              'geostix-app/start',
-            ],
-          },
-          // A group linking to all pages in the reference directory.
-          {
-            label: 'geostix layers',
-            autogenerate: { directory: 'geostix-layers' },
-          },
-        ],*/
         logo: {
             light: './src/assets/docGeobsys2.svg',
             dark: './src/assets/docGeobsysDark2.svg',
@@ -60,10 +43,11 @@ export default defineConfig({
                   fr: 'GEOSTIX',
                   en: 'GEOSTIX',
                 },
-                link: '/geostix/getting-started/',
-                icon: 'document',
+                link: '/geostix',
+                icon: 'geostix',
                 items: [
-                  { label: 'Start Here', items: ['geostix/getting-started', 'geostix/configuration'] },
+                  'geostix',
+                  { label: 'Pour commencer', items: ['geostix/quick_guide', 'geostix/communication'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
                 ],
               },
@@ -73,7 +57,7 @@ export default defineConfig({
                   en: 'GEOSTIX LAYERS',
                 },
                 link: '/geostix_layers/getting-started/',
-                icon: 'document',
+                icon: 'layer',
                 items: [
                   { label: 'Start Here', items: ['geostix_layers/getting-started', 'geostix_layers/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix_layers/guides' } },
@@ -92,7 +76,7 @@ export default defineConfig({
                   en: 'GEOSTIX APP',
                 },
                 link: '/geostix_app/getting-started/',
-                icon: 'document',
+                icon: 'smartphone',
                 items: [
                   { label: 'Start Here', items: ['geostix_app/getting-started', 'geostix_app/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix_app/guides' } },
@@ -108,11 +92,11 @@ export default defineConfig({
               {
                 label: 'GEOBSYS website',
                 link: 'https://geobsys.com',
-                icon: 'right-caret',
+                icon: 'geobsys',
               },
             ],
             {
-              //exclude: ['/demo/excluded/**/*', '/*/demo/excluded/**/*'],
+              exclude: ['/pasteImage'],
               //topics: {
               //  demo: ['/demo/unlisted/topics', '/*/demo/unlisted/topics'],
               //},

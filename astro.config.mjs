@@ -33,7 +33,7 @@ export default defineConfig({
             // Relative path to your custom CSS file
             './src/styles/landing.css',
             './src/styles/custom.css',
-            '@fontsource/montserrat/400.css',
+            '@fontsource/montserrat/500.css',
         ],
         plugins: [
           starlightSidebarTopics(
@@ -103,6 +103,6 @@ export default defineConfig({
             },
           ),
         ],
-        social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+        social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Geobsys/docGeobsys' }],
 		})],
 });

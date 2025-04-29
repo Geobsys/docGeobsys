@@ -32,8 +32,8 @@ jobs:
 
       - name: Override files (icon.ts topics.astro...)
         run: |
-          cp /home/runner/work/docGeobsys/docGeobsys/override/Icon.ts /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components/Icon.ts
-          cp /home/runner/work/docGeobsys/docGeobsys/override/Topics.astro /home/runner/work/docGeobsys/docGeobsys/node_modules/starlight-sidebar-topics/components/Topics.astro
+          cp /home/runner/work/docGeobsys/docGeobsys/override_github/Icon.ts /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components/Icon.ts
+          cp /home/runner/work/docGeobsys/docGeobsys/override_github/Topics.astro /home/runner/work/docGeobsys/docGeobsys/node_modules/starlight-sidebar-topics/components/Topics.astro
           
   deploy:
     needs: build

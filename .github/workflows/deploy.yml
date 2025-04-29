@@ -21,14 +21,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      - name: Display node_modules path
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "node_modules path1:"
-          ls /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components/
-          echo "node_modules path2:"
-          ls ./node_modules/@astrojs/starlight/components/
+      
         
      # - name: Copy modified Icon.ts to node_modules
      #   run: |
@@ -37,6 +30,15 @@ jobs:
       - name: Install, build, and upload your site output
         uses: withastro/action@v4
 
+      - name: Display node_modules path
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "node_modules path1:"
+          ls /home/runner/work/docGeobsys/docGeobsys/node_modules/@astrojs/starlight/components/
+          echo "node_modules path2:"
+          ls ./node_modules/@astrojs/starlight/components/
+          
   deploy:
     needs: build
     runs-on: ubuntu-latest

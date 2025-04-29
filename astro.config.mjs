@@ -33,7 +33,7 @@ export default defineConfig({
             // Relative path to your custom CSS file
             './src/styles/landing.css',
             './src/styles/custom.css',
-            '@fontsource/montserrat/100.css',
+            '@fontsource/montserrat/500.css',
         ],
         plugins: [
           starlightSidebarTopics(
@@ -44,7 +44,7 @@ export default defineConfig({
                   en: 'GEOSTIX',
                 },
                 link: '/geostix',
-                icon: 'geostix',
+                icon: 'geostixIcon',
                 items: [
                   'geostix',
                   { label: 'Pour commencer', items: ['geostix/quick_guide', 'geostix/communication'] },
@@ -57,7 +57,7 @@ export default defineConfig({
                   en: 'GEOSTIX LAYERS',
                 },
                 link: '/geostix_layers/getting-started/',
-                icon: 'layer',
+                icon: 'layerIcon',
                 items: [
                   { label: 'Start Here', items: ['geostix_layers/getting-started', 'geostix_layers/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix_layers/guides' } },
@@ -67,7 +67,7 @@ export default defineConfig({
                     en: 'Stub',
                     fr: 'Ébauche',
                   },
-                  variant: 'caution',
+                  variant: 'note',
                 },
               },
               {
@@ -76,7 +76,7 @@ export default defineConfig({
                   en: 'GEOSTIX APP',
                 },
                 link: '/geostix_app/getting-started/',
-                icon: 'smartphone',
+                icon: 'smartphoneIcon',
                 items: [
                   { label: 'Start Here', items: ['geostix_app/getting-started', 'geostix_app/configuration'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix_app/guides' } },
@@ -86,13 +86,13 @@ export default defineConfig({
                     en: 'Stub',
                     fr: 'Ébauche',
                   },
-                  variant: 'caution',
+                  variant: 'note',
                 },
               },
               {
                 label: 'GEOBSYS website',
                 link: 'https://geobsys.com',
-                icon: 'geobsys',
+                icon: 'geobsysIcon',
               },
             ],
             {

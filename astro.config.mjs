@@ -46,7 +46,7 @@ export default defineConfig({
                 link: '/geostix',
                 icon: 'geostixIcon',
                 items: [
-                  //'geostix',
+                  'geostix',
                   { label: 'Pour commencer', items: ['geostix/quick_guide', 'geostix/communication'] },
                   { label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
                 ],

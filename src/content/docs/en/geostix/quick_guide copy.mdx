@@ -1,0 +1,72 @@
+---
+title: Guide rapide
+description: ce petit guide permet d'exploiter rapidement le GEOSTIX
+---
+
+GEOBSYS a développé GEOSTIX APP pour rendre les technologies GNSS de haute précision accessibles et faciles à utiliser par tous. Ce guide vous accompagne dans les différentes étapes de prise en main.
+
+Pour utiliser le GEOSTIX, veuillez suivre les étapes suivantes :
+
+
+
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. **Allumez le GEOSTIX.**
+    
+    en pressant le bouton situé au niveau de l'embase du GEOSTIX.
+    <img src="/images/quick_guide/etapePowerOnSmall.png" width="150" style="display: block; margin: auto;" />
+   
+2. **Téléchargez l'application GEOSTIX APP sur votre smartphone Android ou iOS.**
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <a href="https://apps.apple.com/ch/app/geostix/id6711349396?l=fr-FR" target="_blank" rel="noopener noreferrer">
+            <img src="/images/quick_guide/ios.png" width="150" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=app.geostix" target="_blank" rel="noopener noreferrer">
+            <img src="/images/quick_guide/playstore.png" width="150" />
+        </a>
+    </div>
+
+3. **Lancez l'appication GEOSTIX APP.**
+
+    cliquez sur l'icône GEOSTIX en bas à gauche. Sélectionnez le GEOSTIX qui vient d'apparaître : le GEOSTIX est à présent connecté au smartphone.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/before_connect.png" width="300" />
+    </div>
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/ready_connect.png" width="300" />
+    </div>
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/connected.png" width="300" />
+    </div>
+4. **Connectez-vous à un serveur de corrections NTRIP.**
+
+    cliquez sur NTRIP setup puis rentrer les paramètres de connection au serveur de corrections.
+    Vous pouvez par exemple vous connecter à [Centipède](https://docs.centipede.fr/)
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/centipede_near.png" width="300" />
+    </div>
+
+    cliquez sur "se connecter"
+
+5. **Effectuez vos relevés.**
+
+    Retournez à l'écran de la carte.
+
+    Cliquez sur l'icône de relevé de point en bas à droite puis lancer un relevé de point moyenné.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/rdy2survey.png" width="300" />
+    </div>
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/averaging.png" width="300" />
+    </div>
+
+    Vous pouvez ensuite cliquer sur le point relevé (sur la carte) et rajouter une description ou une photo.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/clicpoint.png" width="300" />
+    </div>
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/quick_guide/apoint.png" width="300" />
+    </div>
+</Steps>

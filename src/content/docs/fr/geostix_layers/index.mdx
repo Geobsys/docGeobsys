@@ -1,0 +1,40 @@
+---
+title: Présentation des étages capteurs
+description: introduction à la notion d'étage capteur.
+---
+
+Le GEOSTIX, grâce à sa conception modulaire, offre une extensibilité unique à ce récepteur GNSS haut de gamme. 
+
+Tout instrument connecté à sa base constitue un étage capteur. Ces étages peuvent également être des extensions de communication, telles que les modules 4G/LTE, RF ou WIFI.
+
+Les GEOSTIX et leurs différents étages capteurs partagent une liaison électromécanique unique, robuste et étanche, conçue pour l'interconnexion des différents éléments : L'ajout d'une communication 4G/LTE, de lien radio LoRa longue portée mais aussi de capteurs géotechniques se fait aussi aisément qu'assembler des legos par superposition.
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="Plug & Play !">
+  Chaque étage électronique est doté d'une mémoire qui stocke un numéro d'identification unique, permettant ainsi au GEOSTIX de connaître les différents étages qui lui sont connectés.
+</Aside>
+
+
+<div style="display: flex; justify-content: center; gap: 2rem;">
+  <img src="/docGeobsys/images/layers/interconnexion.png"/>
+</div>
+## Connecteur à 36 broches
+
+La connexion électronique intègre 36 broches, un nombre suffisamment important pour embrasser l’ensemble des principaux protocoles de communication standards : USB (hôte ou périphérique), I2C, UART, SPI, CAN, ainsi que des protocoles de transfert parallèle à haute vitesse mais aussi l’émission de timepulse ou la datation précise des événements.
+
+<div style="display: flex; justify-content: center; gap: 2rem;">
+  <img src="/docGeobsys/images/layers/pinOut-Page.svg"/>
+</div>
+
+<Aside type="danger" title="À ne jamais faire  !">
+  N'essayez pas de tourner un étage ou le Geostix par rapport à un autre étage, cela pourrait endommager les cartes électroniques. Malgré le détrompeur, si un couple trop élevé est exercé, des pièces peuvent céder.
+  <div style="display: flex; justify-content: center; gap: 2rem;">
+    <img src="/docGeobsys/images/layers/never_do_this.svg" width="250px"/>
+  </div>
+
+  Toujours dévisser ou visser la bague inox et seulement cette bague, tout en exerçant une légère pression sur le sommet du GEOSTIX afin d'aider le joint à s'insérer.
+  <div style="display: flex; justify-content: center; gap: 2rem;">
+    <img src="/docGeobsys/images/layers/always_unscrew.svg" width="250px"/>
+  </div>
+</Aside>

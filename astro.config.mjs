@@ -56,11 +56,11 @@ export default defineConfig({
                   fr: 'ETAGES CAPTEURS',
                   en: 'GEOSTIX LAYERS',
                 },
-                link: '/geostix_layers/getting-started/',
+                link: '/geostix_layers',
                 icon: 'layerIcon',
                 items: [
-                  { label: 'Start Here', items: ['geostix_layers/getting-started', 'geostix_layers/configuration'] },
-                  { label: 'Guides', autogenerate: { directory: 'geostix_layers/guides' } },
+                  'geostix_layers',
+                  { label: 'Étage 4G/LTE', items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration'] },
                 ],
                 badge: {
                   text: {

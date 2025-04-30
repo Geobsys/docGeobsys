@@ -1,0 +1,37 @@
+---
+title: Description
+description: Description de l'étage 4G/LTE.
+---
+
+L'étage 4G/LTE permet de transmettre des données en utilisant le réseau cellulaire. 
+
+Cet étage est compatible avec **tous les réseaux cellulaires du monde** grâce a son modem et antenne multiband intégré au boitier.
+Le lecteur de carte nano SIM est accessible, l'insertion s'effectue sous l'étage. Témoins lumineux en façade permettant d'observer rapidement l'état de l'étage.
+
+<div style="display: flex; justify-content: center; gap: 2rem;">
+  <img src="/docGeobsys/images/layers/layer4g/layer4g.png"/>
+</div>
+
+Cet étage 4G/LTE apporte plusieurs bénéfices fondamentaux, notamment :
+- **Communication bidirectionnelle avec le dispositif GEOSTIX** par le biais du protocole **MQTT** (Message Queuing Telemetry Transport). Cette fonctionnalité permet un échange de données robuste et en temps réel. L'envoi de commandes MQTT autorise le contrôle et la configuration à distance du GEOSTIX, tandis que la réception de messages MQTT permet de collecter des données télémétriques, des statuts et des alertes générés par le dispositif. Cette interaction facilite l'intégration du GEOSTIX dans des systèmes IoT (Internet des Objets) plus vastes.
+
+- **Flexibilité accrue du GEOSTIX** grâce à sa transformation logicielle en **station de base NTRIP** ou en récepteur mobile autonome (rover). Cette capacité d'adaptation offre une grande souplesse dans les déploiements GNSS. En tant que base, le GEOSTIX peut servir de point de référence pour des mesures différentielles RTK. En mode rover autonome, il peut effectuer des levés et des acquisitions de données de positionnement de manière indépendante. Ce changement de rôle s'effectue par une simple reconfiguration logicielle, éliminant le besoin de matériel dédié supplémentaire.
+
+
+
+
+|||
+|:----------------|----------------:|
+|**MECANIQUE**||
+|**Hauteur étage à prendre en compte**|        |
+|**format de carte SIM**|Nano SIM (sous l'étage)|
+|**masse** | 140 g|
+|**COMMUNICATION**||
+|**Regions**        | GLOBAL  |
+|**LTE FDD bands**        | 1, 2, 3, 4, 5, 7, 8, 12, 13, 20, 25, 28, 66 |
+|**LTE TDD bands**        | 34, 38, 39, 40, 41 |
+|**Data rate**        | CAT1 (10 Mbit/s DL, 5 Mbit/s UL) |
+|**Protocoles**  | TCP/IP, UDP, MQTT|
+|**CONSOMMATION**||
+|**Standby**|TBD (mW)|
+|**En émission**|TBD (mW)|

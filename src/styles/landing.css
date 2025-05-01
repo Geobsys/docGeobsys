@@ -1,18 +1,19 @@
 :root {
-	--purple-hsl: 255, 60%, 60%;
+	--purple-hsl: 336, 60%, 60%;
 	--overlay-blurple: hsla(var(--purple-hsl), 0.2);
+	--orangle-hsl: 45, 60%, 60%;
 }
 
 :root[data-theme='light'] {
-	--purple-hsl: 255, 85%, 65%;
+	--purple-hsl: 336, 85%, 65%;
 }
 
 [data-has-hero] .page {
 	background:
 		linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
 		radial-gradient(var(--overlay-blurple), transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
-		radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50% calc(100% + 20rem) /
-			60rem 30rem;
+		radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50% calc(100% + 20rem) / 60rem 30rem,
+		radial-gradient(#FFBCBC, transparent 40%) no-repeat 30vw 20vh / 120vw 200vh;
 }
 
 [data-has-hero] header {
@@ -23,5 +24,5 @@
 }
 
 [data-has-hero] .hero > img {
-	filter: drop-shadow(0 0 3rem var(--overlay-blurple));
+	filter: drop-shadow(0 0 4rem #F0DDBC);
 }

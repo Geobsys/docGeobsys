@@ -60,7 +60,7 @@ export default defineConfig({
                 icon: 'layerIcon',
                 items: [
                   'geostix_layers',
-                  { label: 'Étage 4G/LTE', items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration'] },
+                  { label: 'Étage 4G/LTE', items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration','geostix_layers/layer4g/configuration_ntrip'] },
                 ],
                 badge: {
                   text: {

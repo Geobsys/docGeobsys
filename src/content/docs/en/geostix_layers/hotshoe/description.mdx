@@ -1,0 +1,59 @@
+---
+title: Description
+description: Description de l'étage hotshoe/synchro flash.
+---
+
+L'étage Hotshoe/griffe flash permet de sauvegarder, au niveau du GEOSTIX, à la fois la **date précise** de la prise de vue mais aussi sa **position précise** et l'**orientation du sytème appareil photo-GEOSTIX** dans l'espace.
+
+Cet étage vient se fixer sur la griffe flash de n'importe quel appareil photo possédant cette prise flash standard.
+
+<div style="display: flex; justify-content: center; gap: 2rem;">
+  <img src="/docGeobsys/images/layers/hotshoe/hotshoe_sony.png" width="300px"/>
+</div>
+
+## Fonctionnement
+
+Chaque photo prise par l'appareil envoie un pulse ou plus exactement une brêve mise à la masse.
+
+Le GEOSTIX muni de l'étage hotshoe/griffe flash capte ce signal et enregistre :
+- la date précise avec une précision meilleure que la microseconde.
+- la position
+- l'orientation fournie par l'IMU du GEOSTIX
+
+L'enregistrement s'effectue au niveau de la carte microSD située sous le GEOSTIX et accessible par liaison USB.
+
+Le nom du fichier est EXTEVENT.LOG, il contient plusieurs champs dont voici la description :
+
+|nom de la variable|Description|
+|:--|--:|
+|TimeOfWeek|temps dans la semaine GPS, commence le dimanche à 00:00:00,00 [convert](https://gnsscalc.com/)|
+|WeekNumber|numéro de semaine GPS [convert](https://gnsscalc.com/)|
+|FixStatus|"R" => RTK FIX / "F" => RTK FLOAT / "S" => SINGLE / "D" => DGNSS / "N" => NO FIX|
+|Lat|latitude (°)|
+|Lon|longitude (°)|
+|Height|hauteur au dessus de l'ellipsoïde (m)|
+|HAccuracy|précision horizontale|
+|VAccuracy|précision vertiacle|
+|OrientationX||
+|OrientationY||
+|OrientationZ||
+|Support1|pour debug|
+|Support2|pour debug|
+
+import { Code } from '@astrojs/starlight/components';
+
+export const extevent = `
+222708.445229,2285,"R",45.519933813,6.680457525,1738.724,0.04,0.05,0.3585647,-0.0514448,0.1724559,0,0
+222716.363965,2285,"R",45.519925443,6.680454741,1738.727,0.04,0.05,0.3569530,-0.0224424,0.1067406,0,0
+222721.165234,2285,"R",45.519917662,6.680453892,1738.713,0.05,0.07,0.3663970,-0.0107033,0.0703658,0,0
+`;
+
+<Code code={extevent} lang="js" title="exemple extrait d'un fichier extevent.log" frame="terminal" />
+
+|||
+|:----------------|----------------:|
+|**MECANIQUE**||
+|**Hauteur étage à prendre en compte**| TBD|
+|**masse** | 40 g|
+|**CONSOMMATION**||
+|**En fonctionnement**|0 (mW)|

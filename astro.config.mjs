@@ -61,6 +61,7 @@ export default defineConfig({
                 items: [
                   'geostix_layers',
                   { label: 'Étage 4G/LTE', items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration','geostix_layers/layer4g/configuration_ntrip'] },
+                  { label: 'Étage Hotshoe', items: ['geostix_layers/hotshoe/description'] },
                 ],
                 badge: {
                   text: {

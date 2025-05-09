@@ -1,39 +1,39 @@
 ---
-title: Présentation des étages capteurs
-description: introduction à la notion d'étage capteur.
+title: Overview of Sensor Layers
+description: Introduction to the concept of sensor layers.
 ---
 
-Le GEOSTIX, grâce à sa conception modulaire, offre une extensibilité unique à ce récepteur GNSS haut de gamme. 
+Thanks to its modular design, the GEOSTIX offers unique extensibility for this high-end GNSS receiver.
 
-Tout instrument connecté à sa base constitue un étage capteur. Ces étages peuvent également être des extensions de communication, telles que les modules 4G/LTE, RF ou WIFI.
+Any device connected to its base constitutes a sensor layer. These layers can also be communication extensions, such as 4G/LTE, RF, or WIFI modules.
 
-Les GEOSTIX et leurs différents étages capteurs partagent une liaison électromécanique unique, robuste et étanche, conçue pour l'interconnexion des différents éléments : L'ajout d'une communication 4G/LTE, de lien radio LoRa longue portée mais aussi de capteurs géotechniques se fait aussi aisément qu'assembler des legos par superposition.
+GEOSTIX and its various sensor layers share a unique, robust, and waterproof electromechanical connection designed to interconnect the different components. Adding 4G/LTE communication, long-range LoRa radio links, or geotechnical sensors is as simple as stacking Lego bricks.
 
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="tip" title="Plug & Play !">
-  Chaque étage électronique est doté d'une mémoire qui stocke un numéro d'identification unique, permettant ainsi au GEOSTIX de connaître les différents étages qui lui sont connectés.
+<Aside type="tip" title="Plug & Play!">
+  Each electronic layer contains memory that stores a unique identification number, allowing the GEOSTIX to recognize the connected layers.
 </Aside>
-
 
 <div style="display: flex; justify-content: center; gap: 2rem;">
   <img src="/docGeobsys/images/layers/interconnexion.png"/>
 </div>
-## Connecteur à 36 broches
 
-La connexion électronique intègre 36 broches, un nombre suffisamment important pour embrasser l’ensemble des principaux protocoles de communication standards : USB (hôte ou périphérique), I2C, UART, SPI, CAN, ainsi que des protocoles de transfert parallèle à haute vitesse mais aussi l’émission de timepulse ou la datation précise des événements.
+## 36-Pin Connector
+
+The electronic connection includes 36 pins — enough to support all major standard communication protocols: USB (host or device), I2C, UART, SPI, CAN, as well as high-speed parallel transfer protocols, timepulse output, and precise event timestamping.
 
 <div style="display: flex; justify-content: center; gap: 2rem;">
   <img src="/docGeobsys/images/layers/pinOut-Page.svg"/>
 </div>
 
-<Aside type="danger" title="À ne jamais faire  !">
-  N'essayez pas de tourner un étage ou le Geostix par rapport à un autre étage, cela pourrait endommager les cartes électroniques. Malgré le détrompeur, si un couple trop élevé est exercé, des pièces peuvent céder.
+<Aside type="danger" title="Never do this!">
+  Never twist a layer or the GEOSTIX relative to another layer, as this may damage the circuit boards. Despite the keying system, excessive torque can break parts.
   <div style="display: flex; justify-content: center; gap: 2rem;">
     <img src="/docGeobsys/images/layers/never_do_this.svg" width="250px"/>
   </div>
 
-  Toujours dévisser ou visser la bague inox et seulement cette bague, tout en exerçant une légère pression sur le sommet du GEOSTIX afin d'aider le joint à s'insérer.
+  Always unscrew or screw only the stainless steel ring while applying gentle pressure on the top of the GEOSTIX to help the gasket fit properly.
   <div style="display: flex; justify-content: center; gap: 2rem;">
     <img src="/docGeobsys/images/layers/always_unscrew.svg" width="250px"/>
   </div>

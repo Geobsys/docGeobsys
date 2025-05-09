@@ -1,44 +1,44 @@
 ---
 title: Description
-description: Description de l'étage hotshoe/synchro flash.
+description: Description of the hotshoe/flash sync layer.
 ---
 
-L'étage Hotshoe/griffe flash permet de sauvegarder, au niveau du GEOSTIX, à la fois la **date précise** de la prise de vue mais aussi sa **position précise** et l'**orientation du sytème appareil photo-GEOSTIX** dans l'espace.
+The Hotshoe/flash sync layer allows the GEOSTIX to record both the **exact timestamp** of the photo and its **precise position** as well as the **orientation of the camera-GEOSTIX system** in space.
 
-Cet étage vient se fixer sur la griffe flash de n'importe quel appareil photo possédant cette prise flash standard.
+This layer is designed to be mounted on the hotshoe of any camera equipped with a standard flash socket.
 
 <div style="display: flex; justify-content: center; gap: 2rem;">
   <img src="/docGeobsys/images/layers/hotshoe/hotshoe_sony.png" width="300px"/>
 </div>
 
-## Fonctionnement
+## How it works
 
-Chaque photo prise par l'appareil envoie un pulse ou plus exactement une brêve mise à la masse.
+Each photo taken by the camera sends a pulse — or more precisely, a brief low signal (GND).
 
-Le GEOSTIX muni de l'étage hotshoe/griffe flash capte ce signal et enregistre :
-- la date précise avec une précision meilleure que la microseconde.
-- la position
-- l'orientation fournie par l'IMU du GEOSTIX
+The GEOSTIX equipped with the layer hotshoe captures this signal and records:
+- the exact time with sub-microsecond accuracy,
+- the position,
+- the orientation provided by the GEOSTIX's IMU.
 
-L'enregistrement s'effectue au niveau de la carte microSD située sous le GEOSTIX et accessible par liaison USB.
+The data is saved onto the microSD card located under the GEOSTIX and accessible via USB connection.
 
-Le nom du fichier est EXTEVENT.LOG, il contient plusieurs champs dont voici la description :
+The log file is named `EXTEVENT.LOG` and contains several fields described below:
 
-|nom de la variable|Description|
+|Variable Name|Description|
 |:--|--:|
-|TimeOfWeek|temps dans la semaine GPS, commence le dimanche à 00:00:00,00 [convert](https://gnsscalc.com/)|
-|WeekNumber|numéro de semaine GPS [convert](https://gnsscalc.com/)|
+|TimeOfWeek|GPS time of week, starts Sunday at 00:00:00.00 [convert](https://gnsscalc.com/)|
+|WeekNumber|GPS week number [convert](https://gnsscalc.com/)|
 |FixStatus|"R" => RTK FIX / "F" => RTK FLOAT / "S" => SINGLE / "D" => DGNSS / "N" => NO FIX|
-|Lat|latitude (°)|
-|Lon|longitude (°)|
-|Height|hauteur au dessus de l'ellipsoïde (m)|
-|HAccuracy|précision horizontale|
-|VAccuracy|précision vertiacle|
-|OrientationX||
-|OrientationY||
-|OrientationZ||
-|Support1|pour debug|
-|Support2|pour debug|
+|Lat|Latitude (°)|
+|Lon|Longitude (°)|
+|Height|Height above ellipsoid (m)|
+|HAccuracy|Horizontal accuracy|
+|VAccuracy|Vertical accuracy|
+|OrientationX||  
+|OrientationY||  
+|OrientationZ||  
+|Support1|Debug info|  
+|Support2|Debug info|  
 
 import { Code } from '@astrojs/starlight/components';
 
@@ -48,12 +48,12 @@ export const extevent = `
 222721.165234,2285,"R",45.519917662,6.680453892,1738.713,0.05,0.07,0.3663970,-0.0107033,0.0703658,0,0
 `;
 
-<Code code={extevent} lang="js" title="exemple extrait d'un fichier extevent.log" frame="terminal" />
+<Code code={extevent} lang="js" title="example from an extevent.log file" frame="terminal" />
 
-|||
-|:----------------|----------------:|
-|**MECANIQUE**||
-|**Hauteur étage à prendre en compte**| TBD|
-|**masse** | 40 g|
-|**CONSOMMATION**||
-|**En fonctionnement**|0 (mW)|
+|||  
+|:----------------|----------------:|  
+|**MECHANICAL**||  
+|**Height to account for (layer)**| TBD|  
+|**Weight**| 40 g|  
+|**POWER CONSUMPTION**||  
+|**In operation**|0 (mW)|

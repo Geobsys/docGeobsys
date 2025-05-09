@@ -1,58 +1,53 @@
 ---
-title: Communication USB
-description: Description et utilisation de la communication USB.
+title: USB Communication
+description: Description and usage of USB communication.
 ---
 
-En connectant le câble USB magnétique à l'embase surmonté d’un GEOSTIX d'un côté, et à un ordinateur de l'autre, plusieurs connexions sont établies simultanément. 
+By connecting the magnetic USB cable to the base of a GEOSTIX on one end and to a computer on the other, multiple connections are established simultaneously.
 
-Cette connexion physique permet non seulement l'alimentation du GEOSTIX et la recharge de ses batteries, mais aussi le paramétrage de l’instrument et le transfert de données.
+This physical connection not only powers the GEOSTIX and charges its batteries, but also allows for instrument configuration and data transfer.
 
+## 5V USB Power Supply
 
-## L’alimentation USB 5V
+To comply with USB 2.0 port standards, the GEOSTIX is configured to support a maximum current of 1A.
 
-Pour être conforme aux normes des ports USB 2.0, le Geostix est configuré pour supporter un courant maximum de 1A.
+The green LED on the back of the GEOSTIX indicates that the device is charging. It turns off once charging is complete.
 
-La led verte située à l'arrière du GEOSTIX indique que l'appareil est en charge. Elle s'éteint une fois la charge terminée.
+## GEOSTIX USB Connections
 
+When connecting the magnetic USB cable, several connections are established:
 
+- USB to the internal microcontroller of the GEOSTIX (see below for setting up a USB/serial connection).
+- USB storage: the microSD card, also physically accessible beneath the GEOSTIX (ejectable), appears as a read-only drive on the PC.
+- One or more additional USB connections (depending on the GEOSTIX model) linked to the GNSS module.
+  - For **M8** or **F9** models, a single serial port appears on the PC: using U-blox's U-Center software, you can modify the GNSS module's configuration.
+  - For the **X5** model, two drives and two Mosaic USB communication ports appear on the PC, allowing connection either in serial mode or Ethernet mode (see below for Ethernet configuration via web browser).
 
+## USB to Microcontroller
 
-## Connexions USB du GEOSTIX
+- Using Tera Term (Windows)
 
-En connectant le câble USB magnétique, plusieurs connexions s'établissent :
-
-- USB vers le microcontrôleur interne du GEOSTIX (voir ci-dessous pour établir une connexion USB/série).
-- USB storage : la carte microSD, par ailleurs physiquement accessible sous le GEOSTIX (éjectable), est accessible en lecture seule sur le PC sous la forme d’un disque.
-- Un ou plusieurs autres USB (selon le modèle de GEOSTIX) connectés au module GNSS.
-  - Pour les modèles **M8** ou **F9**, un seul port série apparaît sur le PC : En utilisant U-center de U-Blox, il est alors possible d’apporter des modifications de configurations au niveau du module GNSS
-  - Pour le modèle **X5**, deux disques apparaissent sur le PC ainsi que deux ports de communications USB Mosaic permettant de se connecter soit en mode série, soit en mode ethernet (voir ci après le paramétrage pour se connecter en ethernet depuis un navigateur web)
-
-
-
-## USB vers microcontrôleur
-
-- Utilisation de Tera Term (Windows)
-
-TeraTerm en version 5.4.0 est téléchargeable [ici](https://github.com/TeraTermProject/teraterm/releases/download/v5.4.0/teraterm-5.4.0.exe)
+Tera Term version 5.4.0 is available for download [here](https://github.com/TeraTermProject/teraterm/releases/download/v5.4.0/teraterm-5.4.0.exe)
 
 ![][image1]
 
-Sélectionner Serial puis l’un des ports COM proposé, de préférence celui intitulé :
-Périphérique série USB mais peu importe puisqu’il est nécessaire d’apporter les réglages de baudrate du port série.
+Select "Serial", then choose one of the available COM ports—preferably the one labeled:
+USB Serial Device (but any port can be used as long as the serial port settings are correctly configured).
 
-**Configuration du port COM :** 
-Menu principal de Tera Term > Setup > Serial port…
-Choisir ensuite le port COM dont la description est indiquée ci-dessous (Périphérique série USB…)
+**COM Port Configuration:**  
+Main menu in Tera Term > Setup > Serial port…  
+Then select the COM port listed as USB Serial Device…
 
 ![][image2]
 
-Vérifier que la connexion s’est bien passée en tapant sur la touche clavier Enter, un chevron (“>”) doit s’afficher.
+To verify a successful connection, press the Enter key on your keyboard—a prompt symbol (">") should appear.
 
 ![][image3]
 
-Il est préférable de sauver la configuration de Tera Term en sélectionnant : 
-Setup > Save Setup…
-Le plus simple est de laisser le nom de fichier par défaut TERATERM.INI et d’écraser le précédent.
+It is recommended to save the Tera Term configuration by selecting:  
+Setup > Save Setup…  
+The easiest way is to keep the default filename `TERATERM.INI` and overwrite the existing one.
+
 
 
 

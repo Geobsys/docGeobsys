@@ -48,7 +48,7 @@ export default defineConfig({
                 items: [
                   'geostix',
                   { label: 'Pour commencer', items: ['geostix/quick_guide', 'geostix/communication'] },
-                  { label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
+                  //{ label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
                 ],
               },
               {
@@ -71,7 +71,7 @@ export default defineConfig({
                   variant: 'note',
                 },
               },
-              {
+              /*{
                 label: {
                   fr: 'GEOSTIX APP',
                   en: 'GEOSTIX APP',
@@ -89,7 +89,7 @@ export default defineConfig({
                   },
                   variant: 'note',
                 },
-              },
+              },*/
               {
                 label: 'GEOBSYS website',
                 link: 'https://geobsys.com',

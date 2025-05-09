@@ -1,18 +1,18 @@
 ---
 title: Configuration
-description: Configuration de l'étage 4G/LTE
+description: 4G/LTE Layer Configuration
 ---
 
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="note" title="Avant de commencer">
-  Il est nécessaire d'avoir : une carte SIM au format nano dont le code PIN a été désactivé (voir pour [iOS](https://www.google.fr/search?q=How+do+I+deactivate+my+SIM+card+code+ios&sca_esv=647936d85f11601f&sxsrf=AHTn8zqA4eXZjAqont-QwAOjRfev0lSjWQ%3A1746030764364&ei=rFASaPuCFqShkdUPr5rBkQw&ved=0ahUKEwj7iOi7l4CNAxWkUKQEHS9NMMIQ4dUDCBA&uact=5&oq=How+do+I+deactivate+my+SIM+card+code+ios&gs_lp=Egxnd3Mtd2l6LXNlcnAiKEhvdyBkbyBJIGRlYWN0aXZhdGUgbXkgU0lNIGNhcmQgY29kZSBpb3MyBRAhGKABMgUQIRigAUiPCVCZBFjWB3ABeAGQAQCYAawBoAHQA6oBAzAuM7gBA8gBAPgBAZgCBKAC3gPCAgoQABiwAxjWBBhHmAMAiAYBkAYGkgcDMS4zoAf7B7IHAzAuM7gH2QM&sclient=gws-wiz-serp) ou [Android](https://www.google.fr/search?q=How+do+I+deactivate+my+SIM+card+code+android&sca_esv=647936d85f11601f&sxsrf=AHTn8zrx55Z_UcFpaWK5sgd-7iZn-fAFtA%3A1746030718655&ei=flASaNnhJ_GhkdUPp_ncgAU&ved=0ahUKEwjZmIKml4CNAxXxUKQEHac8F1AQ4dUDCBA&uact=5&oq=How+do+I+deactivate+my+SIM+card+code+android&gs_lp=Egxnd3Mtd2l6LXNlcnAiLEhvdyBkbyBJIGRlYWN0aXZhdGUgbXkgU0lNIGNhcmQgY29kZSBhbmRyb2lkMgUQIRigAUjAD1DuAlj5DXABeAGQAQCYAacBoAGZCKoBAzAuOLgBA8gBAPgBAZgCCaACwQjCAgoQABiwAxjWBBhHwgIGEAAYFhgewgIFEAAY7wXCAgcQIRigARgKmAMAiAYBkAYHkgcDMS44oAfbI7IHAzAuOLgHvAg&sclient=gws-wiz-serp)).
+<Aside type="note" title="Before you begin">
+  You will need: a nano-format SIM card with the PIN code disabled (see instructions for [iOS](https://www.google.fr/search?q=How+do+I+deactivate+my+SIM+card+code+ios) or [Android](https://www.google.fr/search?q=How+do+I+deactivate+my+SIM+card+code+android)).
 </Aside>
 
-<Aside type="note" title="Accès à l'invite de commande">
-  L'accès à l'invite de commande permettant de discuter avec un GEOSTIX s'effectue de deux manières : 
-  - sans fil via Bluetooth avec l'application mobile GEOSTIX (Android ou iOS)
-  - par connexion filaire via USB ( via un port COM virtuel, voir [communication USB](/docGeobsys/fr/geostix/communication) ).
+<Aside type="note" title="Accessing the command prompt">
+  You can access the command prompt to communicate with a GEOSTIX in two ways:  
+  - wirelessly via Bluetooth using the GEOSTIX mobile app (Android or iOS)  
+  - via USB wired connection (through a virtual COM port, see [USB communication](/docGeobsys/en/geostix/communication)).
 </Aside>
 
 import { Steps } from '@astrojs/starlight/components';
@@ -20,67 +20,67 @@ import { Code } from '@astrojs/starlight/components';
 
 export const cmdC = `
 >C
-'C\' subcommands:
+'C' subcommands:
   C init IAMSURE : initialize modem
   C version : print module version
   C IMEI : print module unique identifier
   C unlock pin : enter pin to unlock SIM
   C AT command : send AT command
   C apn [value] : get/set gateway name
-  C signal : report signal quality
-  +OK
+  C signal : report signal quality
++OK
 >`;
-  
-## Configuration de l'APN
 
-Il est nécessaire de configurer individuellement les paramètres de l'APN (Access Point Name) pour chaque étage équipé d'une connectivité 4G
+## APN Configuration
+
+Each layer equipped with 4G connectivity requires individual APN (Access Point Name) settings.
 
 <Steps>
 
-1. **Insérez la carte SIM.**
+1. **Insert the SIM card.**
     
-    Pour insérer la SIM, procéder par le dessous de l'étage 4G, le lecteur est push-pull c'est-à-dire qu'il faut insérer la carte SIM le plus possible (on entend un 'clic') puis relacher, la carte SIM est insérée. Pour l'extraire, il faut à nouveau la pousser dans son logement le plus possible (on entend un 'clic') puis relacher rapidement.
-2. **Connectez le GEOSTIX à l'étage 4G**
+    Insert the SIM from the bottom of the 4G layer. The reader uses a push-pull mechanism: push the SIM card in fully (you’ll hear a click) and release. The SIM is inserted. To remove it, push it fully in again (you’ll hear a click) and release quickly.
 
-    Posez le GEOSTIX, en alignant les détrompeurs, sur l'étage 4G/LTE puis vissez la bague inox sur l'étage.
+2. **Connect the GEOSTIX to the 4G layer**
+
+    Place the GEOSTIX on the 4G/LTE layer, aligning the notches, then screw the stainless ring onto the layer.
     
-    Allumer ensuite l'ensemble.
+    Power on the system.
 
-    Vous obtenez ceci :
+    You should see this:
     <div style="display: flex; justify-content: center; gap: 2rem;">
       <img src="/docGeobsys/images/layers/layer4g/geostix_4g.png" width="150" />
     </div>
 
-3. **Rentrez les paramètres de connexion**
+3. **Enter the connection parameters**
 
-    Attendre que la lumière de l'étage 4G passe de l'orange au vert (5 à 10 secondes).
+    Wait for the 4G layer's light to switch from orange to green (5 to 10 seconds).
 
-    Envoyez via l'invite de commande la lettre "C" au GEOSTIX. Voici ci-dessous le résultat, la liste des différentes commandes relatives à la communication 4G/LTE :
+    Send the letter "C" to the GEOSTIX via the command prompt. You’ll receive the following output with available 4G/LTE-related commands:
 
     <Code code={cmdC} lang="js" title="cmd C" frame="terminal" />
-  
 
-    Si l'on envoie la commande les deux premières lettres d'une commande, elle s'exécute. Par exemple Cv va correspondre à "**C v**ersion : print module version"
+    Typing just the first letters of a command runs it. For example, `Cv` will run "**C v**ersion : print module version".
 
-    Ici, nous souhaitons rentrer l'APN correspondant à l'opérateur de votre carte SIM, il faut donc envoyer Ca suivi de l'APN de l'opérateur.
-    
-    Si votre opérateur est Bouygues alors envoyez "Ca mmsbouygtel.com".
+    To configure the APN for your SIM card’s carrier, send `Ca` followed by the APN string.
 
-    Ci-dessous, voici une liste opérateur/APN :
+    If your provider is Bouygues, send: `Ca mmsbouygtel.com`.
+
+    Below is a list of carriers and their APNs:
 
     <table>
       <thead>
         <tr>
           <th style="text-align: left;"></th>
-          <th style="text-align: right;">OPERATEUR</th>
+          <th style="text-align: right;">CARRIER</th>
           <th style="text-align: left;">APN</th>
-          <th style="text-align: right;">OPERATEUR</th>
+          <th style="text-align: right;">CARRIER</th>
           <th style="text-align: left;">APN</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="text-align: left;"></td>
+          <td></td>
           <td style="text-align: right;">Bouygues tel</td>
           <td style="text-align: left;">mmsbouygtel.com</td>
           <td style="text-align: right;">Carrefour Mobile</td>
@@ -118,12 +118,12 @@ Il est nécessaire de configurer individuellement les paramètres de l'APN (Acce
           <td></td>
           <td style="text-align: right;">SFR</td>
           <td style="text-align: left;">sl2sfr</td>
-          <td style="text-align: right;">SFR forfaits Bloqués</td>
+          <td style="text-align: right;">SFR Blocked Plans</td>
           <td style="text-align: left;">wapsfr</td>
         </tr>
       </tbody>
     </table>
 
-    **la réponse OK peut prendre plusieurs secondes à arriver**.
+    **The OK response may take several seconds to appear**.
 
 </Steps>

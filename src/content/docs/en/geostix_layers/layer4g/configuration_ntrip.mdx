@@ -1,18 +1,18 @@
 ---
-title: Configuration NTRIP
-description: Configuration NTRIP
+title: NTRIP Configuration
+description: NTRIP Configuration
 ---
 
-**NTRIP** (Network and Transport of RTCM via Internet Protocol) est un protocole qui permet de transmettre des corrections RTK (Real Time Kinematic) par internet à des récepteurs GNSS (Global Navigation Satellite System). 
+**NTRIP** (Network and Transport of RTCM via Internet Protocol) is a protocol that enables the transmission of RTK (Real-Time Kinematic) corrections over the internet to GNSS (Global Navigation Satellite System) receivers.
 
-La configuration des paramètres du caster NTRIP est possible en **mode client** (réception de corrections) ou en **mode serveur** (envoi de corrections). 
+NTRIP caster parameters can be configured in **client mode** (receiving corrections) or **server mode** (sending corrections).
 
-Plusieurs paramètres, listables via la commande "Sl" (S de device **S**ettings, l de **l**ist), permettent de configurer le mode choisi. 
+Several parameters, which can be listed using the "Sl" command ("S" for device **S**ettings, "l" for **l**ist), allow configuration of the selected mode.
 
 import { Aside } from '@astrojs/starlight/components';
 
 <Aside type="note" title="Important">
-  Ces paramètres sont définis et sauvegardés au niveau du GEOSTIX et indépendants de l'étage 4G/LTE connecté. Si l'étage 4G/LTE est changé, le comportement en mode serveur ou client (et MQTT) sera conservé.
+  These settings are defined and saved at the GEOSTIX level and are independent of the connected 4G/LTE layer. If the 4G/LTE module is changed, the behavior in server or client mode (and MQTT) will be retained.
 </Aside>
 
 import { Code } from '@astrojs/starlight/components';
@@ -43,39 +43,38 @@ export const cmdSl = `
 
 <Code code={cmdSl} lang="js" title="cmd Sl" frame="terminal" />
 
+## NTRIP Client Mode Configuration
 
-## Configuration en mode caster NTRIP client
+To enable a GEOSTIX to receive corrections from a remote caster, configure all parameters containing "**client**" using the command:
 
-Pour qu'un GEOSTIX puisse recevoir des corrections depuis un serveur de corrections distant, il faut renseigner les paramètres contenant le mot "**client**" grâce à la commande :
+**Ss \<PARAMETER_NAME\> \<VALUE\>**
 
-**Ss \<NOM_DE_PARAMETRE\> \<VALEUR\>**
-
-puis sauvegarder les paramètres via la commande :
+Then save the settings with:
 
 **SS**
 
-Le GEOSTIX doit répondre **OK**.<br/>Il est possible de vérifier à nouveau la configuration avec la commande **Sl**.<br/>
-La prise en compte des nouvelles options requiert un redémarrage du GEOSTIX (possible via la commande **Hr** ou en utilisant le bouton On/Off de l'embase mobile).
+The GEOSTIX should respond with **OK**.<br/>You can verify the configuration again using **Sl**.<br/>
+Changes require a device restart to take effect (via **Hr** or the On/Off button on the mobile base).
 
-|PARAMETRE|VALEUR|valeur par défaut|
+|PARAMETER|VALUE|Default|
 |:---|---:|---:|
-|ntripClientSendPositionToCaster|en cas de base virtuelle|FALSE|
-|ntripClientAuthParams|paramètres d'authentification|""|
-|ntripClientMountpoint|point de montage sur lequel récupérer les corrections|""|
-|ntripClientCasterPort|port utilisé par le caster, généralement 2101|0|
-|ntripClientCasterHostname|adresse IP ou le nom de domaine pointant vers le caster|""|
-|ntripClientCasterVersion|version 1 ou 2 du NTRIP utilisée par le caster|0|
-|ntripClientEnabled|1 pour activer le mode client et 0 pour le désactiver sans perdre les configurations|FALSE|
+|ntripClientSendPositionToCaster|if using a virtual base|FALSE|
+|ntripClientAuthParams|authentication parameters|""|
+|ntripClientMountpoint|mountpoint from which to receive corrections|""|
+|ntripClientCasterPort|caster port, usually 2101|0|
+|ntripClientCasterHostname|IP or domain of the caster|""|
+|ntripClientCasterVersion|NTRIP version 1 or 2|0|
+|ntripClientEnabled|1 to enable client mode, 0 to disable while keeping the settings|FALSE|
 
 <Aside type="note" title="ntripClientAuthParams">
-  Les paramètres d'authentification qui sont sous la forme d'un couple **nom d'utilisateur:mot de passe** doivent être encodés en **base64**. 
+  Authentication parameters, in the format **username:password**, must be **base64-encoded**.
   
-  Par exemple, si le nom d'utilisateur est **bonjour** et le mot de passe **12345**, l'encodage de la chaîne **bonjour:12345** en base64 (via un site tel que [celui-ci](https://www.base64encode.org/fr/)) donne la valeur suivante : **Ym9uam91cjoxMjM0NQ==**.
+  For example, for username **bonjour** and password **12345**, the base64-encoded string **bonjour:12345** (using a site like [this one](https://www.base64encode.org/)) is: **Ym9uam91cjoxMjM0NQ==**.
 </Aside>
 
-Par exemple, pour se connecter au caster [Centipède](https://docs.centipede.fr/), la liste des commandes à envoyer sera :
+Example for connecting to the [Centipède caster](https://docs.centipede.fr/):
 
-*Au niveau de Centipède, l'authentification n'est pas obligatoire mais on peut mettre **centipede:centipede** ce qui donne en base64 : **Y2VudGlwZWRlOmNlbnRpcGVkZQ==***
+*Authentication is optional, but you may use **centipede:centipede**, encoded as **Y2VudGlwZWRlOmNlbnRpcGVkZQ==***
 
 Ss ntripClientSendPositionToCaster FALSE<br/>
 Ss ntripClientAuthParams Y2VudGlwZWRlOmNlbnRpcGVkZQ==<br/>
@@ -88,35 +87,34 @@ Ss ntripClientCasterVersion 2<br/>
 Ss ntripClientEnabled 1<br/>
 SS<br/>
 
-## Configuration en mode caster NTRIP serveur
+## NTRIP Server Mode Configuration
 
-Pour qu'un GEOSTIX puisse envoyer des corrections, il faut renseigner les paramètres contenant le mot "**server**" grâce à la commande :
+To enable a GEOSTIX to **send** corrections, configure all parameters containing "**server**" using the command:
 
-**Ss \<NOM_DE_PARAMETRE\> \<VALEUR\>**
+**Ss \<PARAMETER_NAME\> \<VALUE\>**
 
-puis sauvegarder les paramètres via la commande :
+Then save the settings with:
 
 **SS**
 
-Le GEOSTIX doit répondre **OK**.<br/>Il est possible de vérifier à nouveau la configuration avec la commande **Sl**.<br/>
-La prise en compte des nouvelles options requiert un redémarrage du GEOSTIX (possible via la commande **Hr** ou en utilisant le bouton On/Off de l'embase mobile).
+The GEOSTIX should respond with **OK**.<br/>You can verify the configuration again using **Sl**.<br/>
+A restart is required for the changes to take effect (via **Hr** or the On/Off button on the mobile base).
 
-
-|PARAMETRE|VALEUR|valeur par défaut|
+|PARAMETER|VALUE|Default|
 |:---|---:|---:|
-|ntripServerAuthParams|paramètres d'authentification|""|
-|ntripServerMountpoint|point de montage sur lequel le client pourra récupérer les corrections|""|
-|ntripServerCasterPort|port utilisé par le caster, généralement 2101|0|
-|ntripServerCasterHostname|adresse IP ou le nom de domaine pointant vers le caster|""|
-|ntripServerCasterVersion|version 1 ou 2 du NTRIP utilisée par le caster|0|
-|ntripServerEnabled|1 pour activer le mode serveur et 0 pour le désactiver sans perdre les configurations|FALSE|
+|ntripServerAuthParams|authentication parameters|""|
+|ntripServerMountpoint|mountpoint from which clients will receive corrections|""|
+|ntripServerCasterPort|caster port, usually 2101|0|
+|ntripServerCasterHostname|IP or domain of the caster|""|
+|ntripServerCasterVersion|NTRIP version 1 or 2|0|
+|ntripServerEnabled|1 to enable server mode, 0 to disable while keeping the settings|FALSE|
 
 <Aside type="note" title="ntripServerAuthParams">
-  En NTRIP version 1, seul le mot de passe est requis (sans nom d'utilisateur), et doit être inscrit en clair dans l'option "ntripServerAuthParams". 
+  In NTRIP version 1, only the **password** is required and must be in plain text (no username). 
   
-  Dans le cas d'un caster en NTRIP version 2, un couple **nom d'utilisateur:mot de passe** doit être encodé en **base64** de la même manière que pour le mode client NTRIP.
+  In NTRIP version 2, you must provide a **username:password** pair, encoded in **base64**, just like in client mode.
 
-  Par exemple, si le nom d'utilisateur est **bonjour** et le mot de passe **12345**, l'encodage de la chaîne **bonjour:12345** en base64 (via un site tel que [celui-ci](https://www.base64encode.org/fr/)) donne la valeur suivante : **Ym9uam91cjoxMjM0NQ==**.
+  For example, for username **bonjour** and password **12345**, the base64-encoded string **bonjour:12345** is: **Ym9uam91cjoxMjM0NQ==**.
 
-  Ainsi en NTRIP v1, la commande sera *Ss ntripServerAuthParams 12345* et en v2 *Ss ntripServerAuthParams Ym9uam91cjoxMjM0NQ==*
+  So in NTRIP v1, use: *Ss ntripServerAuthParams 12345* and in v2: *Ss ntripServerAuthParams Ym9uam91cjoxMjM0NQ==*
 </Aside>

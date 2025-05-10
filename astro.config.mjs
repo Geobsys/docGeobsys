@@ -63,33 +63,33 @@ export default defineConfig({
                   { label: 'Étage 4G/LTE', items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration','geostix_layers/layer4g/configuration_ntrip'] },
                   { label: 'Étage Hotshoe', items: ['geostix_layers/hotshoe/description'] },
                 ],
-                badge: {
+                /*badge: {
                   text: {
                     en: 'Stub',
                     fr: 'Ébauche',
                   },
                   variant: 'note',
-                },
+                },*/
               },
-              /*{
+              {
                 label: {
                   fr: 'GEOSTIX APP',
                   en: 'GEOSTIX APP',
                 },
-                link: '/geostix_app/getting-started/',
+                link: '/geostix_app',
                 icon: 'smartphoneIcon',
                 items: [
-                  { label: 'Start Here', items: ['geostix_app/getting-started', 'geostix_app/configuration'] },
-                  { label: 'Guides', autogenerate: { directory: 'geostix_app/guides' } },
+                  //{ label: 'Start Here', items: ['geostix_app/getting-started'] },
+                  //{ label: 'Guides', autogenerate: { directory: 'geostix_app/guides' } },
                 ],
-                badge: {
+                /*badge: {
                   text: {
                     en: 'Stub',
                     fr: 'Ébauche',
                   },
                   variant: 'note',
-                },
-              },*/
+                },*/
+              },
               {
                 label: 'GEOBSYS website',
                 link: 'https://geobsys.com',

@@ -6,9 +6,8 @@ import starlightSidebarTopics from 'starlight-sidebar-topics'
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://geobsys.github.io',
-  	//base: process.env.NODE_ENV === 'production' ? '/docGeobsys' : '/',
-    base: '/docGeobsys',
+    site: 'https://docs.geobsys.com',
+    base: '/',
     integrations: [starlight({
         title: 'GEOBSYS Docs',
         // Set English as the default language for this site.

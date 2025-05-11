@@ -103,6 +103,8 @@ export default defineConfig({
             },
           ),
         ],
-        social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Geobsys/docGeobsys' }],
+        social: [
+          { icon: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@GEOBSYS' },
+        ],
 		})],
 });

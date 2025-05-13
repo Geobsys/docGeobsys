@@ -30,6 +30,20 @@ export const cmdC = `
   C signal : report signal quality
 +OK
 >`;
+
+export const cmdNp = `
+>N
+'N' subcommands:
+  N info [interface]
+  N ping host [timeout]
++OK
+>Np 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 32 data bytes
+Request 0 time=186 ms
+Request 1 time=26 ms
+Request 2 time=38 ms
++OK
+`;
   
 ## Configuration de l'APN
 
@@ -71,7 +85,6 @@ Il est nécessaire de configurer individuellement les paramètres de l'APN (Acce
     <table>
       <thead>
         <tr>
-          <th style="text-align: left;"></th>
           <th style="text-align: right;">OPERATEUR</th>
           <th style="text-align: left;">APN</th>
           <th style="text-align: right;">OPERATEUR</th>
@@ -80,42 +93,36 @@ Il est nécessaire de configurer individuellement les paramètres de l'APN (Acce
       </thead>
       <tbody>
         <tr>
-          <td style="text-align: left;"></td>
           <td style="text-align: right;">Bouygues tel</td>
           <td style="text-align: left;">mmsbouygtel.com</td>
           <td style="text-align: right;">Carrefour Mobile</td>
           <td style="text-align: left;">orange.acte</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">Free Mobile</td>
           <td style="text-align: left;">free</td>
           <td style="text-align: right;">La Poste Mobile</td>
           <td style="text-align: left;">wapdebitel</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">M6 Mobile</td>
           <td style="text-align: left;">ofnew.fr</td>
           <td style="text-align: right;">NRJ Mobile</td>
           <td style="text-align: left;">ofnew.fr</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">NRJ Mobile</td>
           <td style="text-align: left;">orange.acte</td>
           <td style="text-align: right;">Orange & Sosh</td>
           <td style="text-align: left;">orange</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">PRIXTEL</td>
           <td style="text-align: left;">sl2sfr</td>
           <td style="text-align: right;">Virgin Mobile</td>
           <td style="text-align: left;">ofnew.fr</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">SFR</td>
           <td style="text-align: left;">sl2sfr</td>
           <td style="text-align: right;">SFR forfaits Bloqués</td>
@@ -127,3 +134,11 @@ Il est nécessaire de configurer individuellement les paramètres de l'APN (Acce
     **la réponse OK peut prendre plusieurs secondes à arriver**.
 
 </Steps>
+
+## Vérification de la connexion à internet
+
+Il est ensuite prudent d'effectuer un Ping afin de s'assurer de la bonne connexion à internet :
+
+    <Code code={cmdNp} lang="js" title="cmd Np" frame="terminal" />
+
+Dans l'exemple ci-dessus, la commande Np ping à l'adresse 8.8.8.8 et les réponses immédiates ce qui montre bien une connexion opérationnelle.

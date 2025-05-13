@@ -1,0 +1,127 @@
+---
+title: LEDs, Status Indicators
+description: The LEDs provide system status feedback on the Geostix.
+---
+
+GEOSTIX devices are equipped with **four status indicators**: three on the front panel and one on the rear side. The front-facing LEDs are multicolor and indicate the operating status of:
+- the GNSS module (satellite icon)
+- the GEOSTIX microcontroller (CPU icon)
+- the Bluetooth interface (Bluetooth icon, bottom)
+
+
+
+The rear-facing LED is green-only and indicates battery charging activity.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">GEOSTIX Front View</th>
+            <th style="text-align: center;">GEOSTIX Rear View</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center;">
+                <div style="display: flex; justify-content: center; gap: 2rem;">
+                    <img src="/images/leds/geostixEmbaseRectoVerso2.png"/>
+                </div>
+            </td>
+            <td style="text-align: center;">
+                <div style="display: flex; justify-content: center; gap: 2rem;">
+                    <img src="/images/leds/geostixEmbaseRectoVerso3.png"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">The front panel hosts 3 multicolor status LEDs.</td>
+            <td style="text-align: left;">A single green LED on the rear indicates active battery charging.</td>
+        </tr>
+    </tbody>
+</table>
+
+## SATELLITE LED
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">SATELLITE LED State</th>
+            <th style="text-align: center;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_stop.svg" /></td>
+            <td style="text-align: right;">GNSS module initializing or no valid satellite signal detected.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_rose.svg" /></td>
+            <td style="text-align: right;">GNSS fix acquired in SINGLE or DGNSS mode (code-based corrections, e.g. SBAS).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_orange.svg" /></td>
+            <td style="text-align: right;">RTK FLOAT mode (carrier-phase ambiguities unresolved).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_vert.svg" /></td>
+            <td style="text-align: right;">RTK FIX mode (carrier-phase ambiguities resolved).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_blue.svg" /></td>
+            <td style="text-align: right;">BASE station mode: broadcasting corrections via RF, Wi-Fi or 4G/LTE (depending on connected module).</td>
+        </tr>
+    </tbody>
+</table>
+
+## CPU LED
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">CPU LED State</th>
+            <th style="text-align: center;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_vert_1hz.svg" /></td>
+            <td style="text-align: right;">System operational, GPS time not yet synchronized. LED blinks at 1Hz.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_vert.svg" /></td>
+            <td style="text-align: right;">System synchronized with GPS time. LED blinks at 0.5Hz.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_orange.svg" /></td>
+            <td style="text-align: right;">System running, but battery level is below 15%.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_red.svg" /></td>
+            <td style="text-align: right;">Battery critically low. Triple red flash at startup indicates failure to boot.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_blue.svg" /></td>
+            <td style="text-align: right;">Overlays other CPU states. Indicates active write operations to microSD card.</td>
+        </tr>
+    </tbody>
+</table>
+
+## BLUETOOTH LED
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">BLUETOOTH LED State</th>
+            <th style="text-align: center;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/bt_vert.svg" /></td>
+            <td style="text-align: right;">Device is in Bluetooth discoverable/pairing mode.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/bt_blue.svg" /></td>
+            <td style="text-align: right;">Active Bluetooth connection established.</td>
+        </tr>
+    </tbody>
+</table>

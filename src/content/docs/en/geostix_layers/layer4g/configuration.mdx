@@ -31,6 +31,20 @@ export const cmdC = `
 +OK
 >`;
 
+export const cmdNp = `
+>N
+'N' subcommands:
+  N info [interface]
+  N ping host [timeout]
++OK
+>Np 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 32 data bytes
+Request 0 time=186 ms
+Request 1 time=26 ms
+Request 2 time=38 ms
++OK
+`;
+
 ## APN Configuration
 
 Each layer equipped with 4G connectivity requires individual APN (Access Point Name) settings.
@@ -71,7 +85,6 @@ Each layer equipped with 4G connectivity requires individual APN (Access Point N
     <table>
       <thead>
         <tr>
-          <th style="text-align: left;"></th>
           <th style="text-align: right;">CARRIER</th>
           <th style="text-align: left;">APN</th>
           <th style="text-align: right;">CARRIER</th>
@@ -80,42 +93,36 @@ Each layer equipped with 4G connectivity requires individual APN (Access Point N
       </thead>
       <tbody>
         <tr>
-          <td></td>
           <td style="text-align: right;">Bouygues tel</td>
           <td style="text-align: left;">mmsbouygtel.com</td>
           <td style="text-align: right;">Carrefour Mobile</td>
           <td style="text-align: left;">orange.acte</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">Free Mobile</td>
           <td style="text-align: left;">free</td>
           <td style="text-align: right;">La Poste Mobile</td>
           <td style="text-align: left;">wapdebitel</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">M6 Mobile</td>
           <td style="text-align: left;">ofnew.fr</td>
           <td style="text-align: right;">NRJ Mobile</td>
           <td style="text-align: left;">ofnew.fr</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">NRJ Mobile</td>
           <td style="text-align: left;">orange.acte</td>
           <td style="text-align: right;">Orange & Sosh</td>
           <td style="text-align: left;">orange</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">PRIXTEL</td>
           <td style="text-align: left;">sl2sfr</td>
           <td style="text-align: right;">Virgin Mobile</td>
           <td style="text-align: left;">ofnew.fr</td>
         </tr>
         <tr>
-          <td></td>
           <td style="text-align: right;">SFR</td>
           <td style="text-align: left;">sl2sfr</td>
           <td style="text-align: right;">SFR Blocked Plans</td>
@@ -127,3 +134,9 @@ Each layer equipped with 4G connectivity requires individual APN (Access Point N
     **The OK response may take several seconds to appear**.
 
 </Steps>
+
+It is then advisable to perform a ping to ensure a proper internet connection:
+
+    <Code code={cmdNp} lang="js" title="cmd Np" frame="terminal" />
+
+In the example above, the Np command pings the address 8.8.8.8, and the immediate responses confirm that the connection is working properly.

@@ -1,0 +1,128 @@
+---
+title: LEDs, témoins lumineux
+description: Les LEDs fournissent des informations système sur le statut du Geostix.
+---
+
+Les GEOSTIX sont équipés de **quatre indicateurs lumineux** : trois en face avant et un en face arrière. Les LED frontales sont **multicolores** et permettent de diagnostiquer l’état des sous-systèmes suivants :
+- le **récepteur GNSS** (icône satellite)
+- le **microcontrôleur interne** (icône CPU)
+- la connectivité **Bluetooth** (icône Bluetooth, en bas)
+
+
+Le témoin lumineux arrière est **vert** uniquement, et s’allume **durant la charge** de la batterie interne.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">GEOSTIX - Face avant</th>
+            <th style="text-align: center;">GEOSTIX - Face arrière</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center;">
+                <img src="/images/leds/geostixEmbaseRectoVerso2.png"/>
+            </td>
+            <td style="text-align: center;">
+                <img src="/images/leds/geostixEmbaseRectoVerso3.png"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">Trois LEDs multicolores indiquent l’état opérationnel des principaux modules.</td>
+            <td style="text-align: left;">Une LED verte indique la mise en charge (allumée lorsque la batterie est en cours de recharge).</td>
+        </tr>
+    </tbody>
+</table>
+
+## LED SATELLITE
+
+Indique l’état du module GNSS et le niveau de précision du positionnement.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">État de la LED</th>
+            <th style="text-align: center;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_stop.svg" /></td>
+            <td style="text-align: right;">Module GNSS en initialisation ou absence de visibilité satellite.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_rose.svg" /></td>
+            <td style="text-align: right;">Mode GNSS : SINGLE ou DGNSS (corrections code uniquement, ex : SBAS).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_orange.svg" /></td>
+            <td style="text-align: right;">Mode RTK FLOAT : ambigüités de phase non résolues.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_vert.svg" /></td>
+            <td style="text-align: right;">Mode RTK FIX : ambigüités de phase entières résolues (position centimétrique).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/sat_blue.svg" /></td>
+            <td style="text-align: right;">Mode BASE : émission de corrections différentielles (RF, Wi-Fi ou 4G/LTE selon configuration).</td>
+        </tr>
+    </tbody>
+</table>
+
+## LED CPU
+
+Fournit des informations sur l’état du microcontrôleur embarqué et du système en général.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">État de la LED</th>
+            <th style="text-align: center;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_vert_1hz.svg" /></td>
+            <td style="text-align: right;">Système actif mais horloge non synchronisée avec le temps GPS. Clignotement à 1 Hz.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_vert.svg" /></td>
+            <td style="text-align: right;">Horloge synchronisée sur temps GPS. Clignotement à 0,5 Hz.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_orange.svg" /></td>
+            <td style="text-align: right;">Système opérationnel mais batterie faible (< 15%).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_red.svg" /></td>
+            <td style="text-align: right;">Niveau de batterie critique. Trois clignotements rouges à la mise sous tension indiquent un démarrage impossible.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/cpu_blue.svg" /></td>
+            <td style="text-align: right;">Écriture active sur la carte microSD (superposé aux autres états CPU).</td>
+        </tr>
+    </tbody>
+</table>
+
+## LED BLUETOOTH
+
+Indique l’état de la connectivité Bluetooth embarquée.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;">État de la LED</th>
+            <th style="text-align: center;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/bt_vert.svg" /></td>
+            <td style="text-align: right;">Bluetooth actif, en attente de connexion (mode découverte/pairing).</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: bottom;"><img style="display: flex; justify-content: left; gap: 2rem; height: 70px;" src="/images/leds/bt_blue.svg" /></td>
+            <td style="text-align: right;">Connexion Bluetooth établie avec un hôte distant.</td>
+        </tr>
+    </tbody>
+</table>

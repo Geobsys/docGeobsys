@@ -1,0 +1,85 @@
+---
+title: GEOSTIX-X5
+description: ce petit guide permet d'exploiter rapidement les capacités du GEOSTIX-X5
+---
+
+Le GEOSTIX-X5 est basé sur le module GNSS [Mosaic-X5](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5) de Septentrio. Il se distingue des autres modèles GEOSTIX par plusieurs fonctionnalités additionnelles :
+
+## Spécifique au GEOSTIX-X5
+
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. **Ethernet par USB :**
+    lorsque le GEOSTIX est connecté à un PC via le câble USB-magnétique, il permet d'accéder aux paramètres du module via un simple navigateur web à l'adresse [192.168.3.1](http://192.168.3.1/).
+    <img src="/images/geostix-x5/interfaceSeptentrio.png" width="300" style="display: block; margin: auto;" />
+
+   
+2. **Enregistrement de données :**
+    Le module est équipé de sa propre carte SD pour l'enregistrement des données RINEX ou au format propriétaire Septentrio (*.sbf).
+
+    Accès à la carte SD :
+
+    La carte SD est accessible lorsque le GEOSTIX est connecté à un PC via le câble USB-magnétique.
+    
+    Elle apparaît comme un disque contenant le répertoire **SSN/GRB0051** (GRB0051 étant le nom de code du Mosaic-X5)
+    
+    **Organisation des enregistrements :**
+
+    Chaque session d'enregistrement est classée dans un sous-répertoire nommé AAJJJ, où :
+    - AA représente l'année du premier enregistrement.
+    - JJJ représente le jour de l'année du premier enregistrement.
+    
+    À l'intérieur de ces répertoires, les fichiers sont nommés selon la convention suivante : **gstxJJJX.AAo** ou **gstxJJJX.AAp**  
+    - JJJ et AA correspondent respectivement au jour et à l'année du premier enregistrement.
+    - X correspond au numéro de la session dans la journée :
+    - 0 pour un enregistrement couvrant une journée complète.
+    De 1 à 9, puis de A à O pour les sessions horaires (de la 1ère à la 24ème heure).
+
+    **gstxJJJX.AAo** correspond aux observations
+
+    **gstxJJJX.AAp** correspond aux éphémérides 
+
+</Steps>
+
+import { Aside } from '@astrojs/starlight/components';
+
+## Configurer la sauvegarde automatique des RINEX
+
+<Aside type="tip" title="GEOSTIX-X5 - enregistrement des RINEX">
+  Par défaut, le GEOSTIX-X5 sauvegarde les RINEX de manière journalière avec une fréquence de 1Hz.
+</Aside>
+
+Il est tout à fait possible de changer différents paramètres concernant l'enregistrement des RINEX.
+
+Cela s'effectue depuis l'interface web, depuis un navigateur (adresse 192.168.3.1)
+
+
+<Steps>
+
+1. **Cliquer sur l'onglet "Admin" puis sélectionner "Expert Control"**
+    
+    
+    <img src="/images/geostix-x5/adminExpertControl.png" width="400" style="display: block; margin: auto;" />
+   
+2. **Cliquer sur Logging**
+
+    <img src="/images/geostix-x5/log.png" width="400" style="display: block; margin: auto;" />    
+
+3. **Cliquer sur "Internal RINEX Logging"**
+
+    <img src="/images/geostix-x5/internalRinex.png" width="400" style="display: block; margin: auto;" />    
+
+4. **Cliquer sur "RINEX Logging Options"**
+
+    <img src="/images/geostix-x5/rinexLog.png" width="400" style="display: block; margin: auto;" />    
+
+5. **Voici l'interface de configuration de la sauvegarde RINEX:**
+
+    Il est alors possible de configurer la sauvegarde horaire ou journalière, la fréquence ou encore la version du format RINEX. 
+
+    <img src="/images/geostix-x5/confRinex.png" style="display: block; margin: auto;" />    
+
+</Steps>
+

@@ -1,0 +1,69 @@
+---
+title: GEOSTIX-X5
+description: this quick guide helps you rapidly leverage the GEOSTIX-X5 capabilities
+---
+
+The GEOSTIX-X5 is based on Septentrio's [Mosaic-X5](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5) GNSS module. It stands out from other GEOSTIX models with several additional features:
+
+## Specific to GEOSTIX-X5
+
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+1. **Ethernet via USB:**
+    when the GEOSTIX is connected to a PC via the magnetic USB cable, it provides access to the module's settings through a simple web browser at [192.168.3.1](http://192.168.3.1/).
+    <img src="/images/geostix-x5/interfaceSeptentrio.png" style="display: block; margin: auto;" />
+   
+2. **Data recording:**
+    The module is equipped with its own SD card for recording RINEX data or in Septentrio's proprietary format (*.sbf).
+    
+    SD card access:
+    The SD card is accessible when the GEOSTIX is connected to a PC via the magnetic USB cable.
+    
+    It appears as a disk containing the directory **SSN/GRB0051** (GRB0051 being the Mosaic-X5 code name)
+    
+    **Recording organization:**
+    Each recording session is organized in a subdirectory named YYDDD, where:
+    - YY represents the year of the first recording.
+    - DDD represents the day of the year of the first recording.
+    
+    Within these directories, files are named according to the following convention: **gstxDDDX.YYo** or **gstxDDDX.YYp**  
+    - DDD and YY correspond respectively to the day and year of the first recording.
+    - X corresponds to the session number within the day:
+    - 0 for a recording covering a full day.
+    - From 1 to 9, then from A to O for hourly sessions (from the 1st to the 24th hour).
+    
+    **gstxDDDX.YYo** corresponds to observations
+    **gstxDDDX.YYp** corresponds to ephemerides 
+</Steps>
+
+import { Aside } from '@astrojs/starlight/components';
+
+## Configure automatic RINEX saving
+
+<Aside type="tip" title="GEOSTIX-X5 - RINEX recording">
+  By default, the GEOSTIX-X5 saves RINEX data daily with a 1Hz frequency.
+</Aside>
+
+It is entirely possible to change different parameters concerning RINEX recording.
+This is done from the web interface, using a browser (address 192.168.3.1)
+
+<Steps>
+1. **Click on the "Admin" tab then select "Expert Control"**
+    
+    
+    <img src="/images/geostix-x5/adminExpertControl.png" width="400" style="display: block; margin: auto;" />
+   
+2. **Click on Logging**
+    <img src="/images/geostix-x5/log.png" width="400" style="display: block; margin: auto;" />    
+
+3. **Click on "Internal RINEX Logging"**
+    <img src="/images/geostix-x5/internalRinex.png" width="400" style="display: block; margin: auto;" />    
+
+4. **Click on "RINEX Logging Options"**
+    <img src="/images/geostix-x5/rinexLog.png" width="400" style="display: block; margin: auto;" />    
+
+5. **Here is the RINEX saving configuration interface:**
+    You can then configure hourly or daily saving, frequency, or the RINEX format version. 
+    <img src="/images/geostix-x5/confRinex.png" style="display: block; margin: auto;" />    
+</Steps>

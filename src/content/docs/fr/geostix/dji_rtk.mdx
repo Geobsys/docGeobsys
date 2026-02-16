@@ -1,0 +1,98 @@
+---
+title: Station de base pour drone DJI RTK
+description: Configurer le GEOSTIX comme station de base pour un drone DJI RTK (Phantom 4 RTK, Matrice 300/350 RTK, Mavic 3E RTK)
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Ce guide explique comment configurer votre récepteur GEOSTIX en tant que station de base pour fournir des corrections RTK à un drone DJI via le Wi-Fi du GEOSTIX.
+
+<Aside type="tip" title="Prérequis">
+- Un récepteur GEOSTIX avec le firmware à jour
+- Un étage Wi-Fi connecté au GEOSTIX
+- L'application GEOSTIX APP installée sur votre smartphone
+- Un drone DJI compatible RTK (Phantom 4 RTK, Matrice 300 RTK, Matrice 350 RTK, Mavic 3E RTK)
+- La radiocommande DJI avec l'application GS RTK ou DJI Pilot 2
+</Aside>
+
+## Étape 1 : Configurer le GEOSTIX en mode base
+
+<Steps>
+
+1. **Connectez-vous au GEOSTIX via l'application GEOSTIX APP.**
+
+    Lancez l'application, puis sélectionnez votre récepteur GEOSTIX dans la liste des appareils disponibles.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/dji_rtk/app_receiver_fr.png" width="300" />
+    </div>
+
+2. **Accédez à la configuration du mode base.**
+
+    Depuis l'écran "Récepteur", appuyez sur **Configuration mode base**.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/dji_rtk/app_receiver_fr.png" width="300" />
+    </div>
+
+3. **Renseignez les coordonnées de la base.**
+
+    Vous pouvez saisir manuellement les coordonnées connues de votre point de station (longitude, latitude, hauteur) ou appuyer sur **Utiliser la position actuelle** pour utiliser la position GNSS courante.
+
+    Renseignez également la **hauteur d'antenne** (hauteur du GEOSTIX par rapport au sol).
+
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/dji_rtk/base_mode_off_fr.png" width="300" />
+    </div>
+
+    <Aside type="caution" title="Précision des coordonnées">
+    Pour une précision RTK optimale, il est recommandé d'utiliser des coordonnées de station connues avec précision (point géodésique, levé statique, etc.). L'utilisation de la position actuelle (SINGLE) introduit une erreur absolue de l'ordre de quelques mètres mais la précision relative reste centimétrique.
+    </Aside>
+
+4. **Activez le mode base.**
+
+    Basculez l'interrupteur **Activer le mode base**. La barre d'état en haut de l'écran passe de **SINGLE** à **BASE**, confirmant que le GEOSTIX diffuse les corrections.
+
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+        <img src="/images/dji_rtk/base_mode_coords_fr.png" width="250" />
+        <img src="/images/dji_rtk/base_mode_active_fr.png" width="250" />
+    </div>
+
+</Steps>
+
+## Étape 2 : Connecter la radiocommande DJI au Wi-Fi du GEOSTIX
+
+<Steps>
+
+1. **Accédez aux paramètres Wi-Fi de la radiocommande DJI.**
+
+    Sur la radiocommande, ouvrez les paramètres réseau et connectez-vous au réseau Wi-Fi du GEOSTIX. Le SSID correspond au numéro de série complet de votre appareil (ex : **GEOSTIX-X5-00269**) et le mot de passe Wi-Fi est **STXYYYYY** où YYYYY est le numéro de série (ex : **STX00269**).
+
+2. **Ouvrez les paramètres RTK dans l'application DJI.**
+
+    - **GS RTK (Phantom 4 RTK)** : Appuyez sur l'icône des 3 points en haut à droite, puis allez dans l'onglet **RTK Settings**. Sélectionnez **Custom network RTK** dans le menu déroulant.
+
+    - **DJI Pilot 2 (Matrice 300/350 RTK, Mavic 3E RTK)** : Depuis le tableau de bord de vol, accédez aux **Paramètres du drone**, puis sélectionnez **RTK**. Choisissez **Custom Network RTK**.
+
+3. **Configurez la connexion NTRIP.**
+
+    Renseignez les paramètres suivants :
+
+    | Paramètre | Valeur |
+    |-----------|--------|
+    | **Host** | `geostix.local` ou `192.168.84.1` |
+    | **Port** | `2101` |
+    | **Utilisateur** | `geostix` |
+    | **Mot de passe** | `geostix` |
+    | **Mountpoint** | `BASE` |
+
+4. **Lancez la connexion.**
+
+    Appuyez sur **Connect** (GS RTK) ou **Start Transmitting** (Pilot 2). Le statut RTK doit passer au vert, indiquant que le drone reçoit les corrections du GEOSTIX.
+
+</Steps>
+
+<Aside type="note" title="Vérification">
+Une fois la connexion établie, le drone doit afficher un statut **RTK FIX** après quelques secondes. Si le statut reste en **FLOAT** ou **SINGLE**, vérifiez que :
+- Le GEOSTIX est bien en mode **BASE** (barre d'état bleue)
+- La radiocommande est connectée au Wi-Fi du GEOSTIX
+- Les paramètres NTRIP sont corrects
+</Aside>

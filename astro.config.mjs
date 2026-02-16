@@ -49,6 +49,7 @@ export default defineConfig({
             items: [
               'geostix',
               { label: 'Getting started', translations: { fr: 'Pour commencer' }, items: ['geostix/quick_guide', 'geostix/leds', 'geostix/communication', 'geostix/geostix-x5'] },
+              { label: 'Integrations', translations: { fr: 'Intégrations' }, items: ['geostix/dji_rtk'] },
               //{ label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
             ],
           },

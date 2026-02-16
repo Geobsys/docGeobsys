@@ -1,0 +1,98 @@
+---
+title: Base station for DJI RTK drones
+description: Configure the GEOSTIX as a base station for DJI RTK drones (Phantom 4 RTK, Matrice 300/350 RTK, Mavic 3E RTK)
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+This guide explains how to configure your GEOSTIX receiver as a base station to provide RTK corrections to a DJI drone via the Wi-Fi from the GEOSTIX.
+
+<Aside type="tip" title="Prerequisites">
+- A GEOSTIX receiver with up-to-date firmware
+- A Wi-Fi layer connected to the GEOSTIX
+- GEOSTIX APP installed on your smartphone
+- A DJI RTK-compatible drone (Phantom 4 RTK, Matrice 300 RTK, Matrice 350 RTK, Mavic 3E RTK)
+- DJI remote controller with GS RTK or DJI Pilot 2 app
+</Aside>
+
+## Step 1: Configure the GEOSTIX as a base station
+
+<Steps>
+
+1. **Connect to the GEOSTIX via the GEOSTIX APP.**
+
+    Launch the app and select your GEOSTIX receiver from the list of available devices.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/dji_rtk/app_receiver_en.png" width="300" />
+    </div>
+
+2. **Open the base mode configuration.**
+
+    From the "Receiver" screen, tap **Base Mode Configuration**.
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/dji_rtk/app_receiver_en.png" width="300" />
+    </div>
+
+3. **Enter the base station coordinates.**
+
+    You can manually enter the known coordinates of your station point (longitude, latitude, height) or tap **Use current position** to use the current GNSS position.
+
+    Also enter the **antenna height** (height of the GEOSTIX above the ground).
+
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/dji_rtk/base_mode_off_en.png" width="300" />
+    </div>
+
+    <Aside type="caution" title="Coordinate accuracy">
+    For optimal RTK accuracy, it is recommended to use precisely known station coordinates (geodetic point, static survey, etc.). Using the current position (SINGLE) introduces an absolute error of a few meters, but relative accuracy remains at centimeter level.
+    </Aside>
+
+4. **Enable base mode.**
+
+    Toggle the **Enable base mode** switch. The status bar at the top of the screen changes from **SINGLE** to **BASE**, confirming that the GEOSTIX is broadcasting corrections.
+
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+        <img src="/images/dji_rtk/base_mode_coords_en.png" width="250" />
+        <img src="/images/dji_rtk/base_mode_active_en.png" width="250" />
+    </div>
+
+</Steps>
+
+## Step 2: Connect the DJI remote controller to the GEOSTIX Wi-Fi
+
+<Steps>
+
+1. **Open the Wi-Fi settings on the DJI remote controller.**
+
+    On the remote controller, open the network settings and connect to the Wi-Fi network from the GEOSTIX. The SSID is the full serial number of your device (e.g., **GEOSTIX-X5-00269**) and the Wi-Fi password is **STXYYYYY** where YYYYY is the serial number (e.g., **STX00269**).
+
+2. **Open RTK settings in the DJI app.**
+
+    - **GS RTK (Phantom 4 RTK)**: Tap the 3-dot icon in the upper right corner, then go to the **RTK Settings** tab. Select **Custom network RTK** from the dropdown menu.
+
+    - **DJI Pilot 2 (Matrice 300/350 RTK, Mavic 3E RTK)**: From the flight dashboard, navigate to **Drone Settings**, then select **RTK**. Choose **Custom Network RTK**.
+
+3. **Configure the NTRIP connection.**
+
+    Enter the following parameters:
+
+    | Parameter | Value |
+    |-----------|-------|
+    | **Host** | `geostix.local` or `192.168.84.1` |
+    | **Port** | `2101` |
+    | **Username** | `geostix` |
+    | **Password** | `geostix` |
+    | **Mountpoint** | `BASE` |
+
+4. **Start the connection.**
+
+    Tap **Connect** (GS RTK) or **Start Transmitting** (Pilot 2). The RTK status should turn green, indicating that the drone is receiving corrections from the GEOSTIX.
+
+</Steps>
+
+<Aside type="note" title="Verification">
+Once the connection is established, the drone should display an **RTK FIX** status after a few seconds. If the status remains **FLOAT** or **SINGLE**, check that:
+- The GEOSTIX is in **BASE** mode (blue status bar)
+- The remote controller is connected to the Wi-Fi from the GEOSTIX
+- The NTRIP parameters are correct
+</Aside>

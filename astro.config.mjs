@@ -48,7 +48,7 @@ export default defineConfig({
             icon: 'geostixIcon',
             items: [
               'geostix',
-              { label: 'Pour commencer', items: ['geostix/quick_guide', 'geostix/leds', 'geostix/communication', 'geostix/geostix-x5'] },
+              { label: 'Getting started', translations: { fr: 'Pour commencer' }, items: ['geostix/quick_guide', 'geostix/leds', 'geostix/communication', 'geostix/geostix-x5'] },
               //{ label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
             ],
           },
@@ -61,8 +61,8 @@ export default defineConfig({
             icon: 'layerIcon',
             items: [
               'geostix_layers',
-              { label: 'Étage 4G/LTE', items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration','geostix_layers/layer4g/configuration_ntrip'] },
-              { label: 'Étage Hotshoe', items: ['geostix_layers/hotshoe/description'] },
+              { label: 'LTE Layer', translations: { fr: 'Étage 4G/LTE' }, items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration','geostix_layers/layer4g/configuration_ntrip'] },
+              { label: 'Hotshoe Layer', translations: { fr: 'Étage Flash' }, items: ['geostix_layers/hotshoe/description'] },
             ],
             /*badge: {
               text: {
@@ -92,7 +92,10 @@ export default defineConfig({
             },*/
           },
           {
-            label: 'GEOBSYS website',
+            label: {
+              fr: 'Site GEOBSYS',
+              en: 'GEOBSYS website',
+            },
             link: 'https://geobsys.com',
             icon: 'geobsysIcon',
           },

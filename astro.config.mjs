@@ -7,6 +7,9 @@ import starlightSidebarTopics from 'starlight-sidebar-topics'
 export default defineConfig({
   site: 'https://docs.geobsys.com',
   base: '/',
+  redirects: {
+    '/': '/en',
+  },
   integrations: [
     starlight({
       title: 'GEOBSYS Docs',

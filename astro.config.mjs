@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://docs.geobsys.com',
   base: '/',
   redirects: {
-    '/': '/en',
+    '/': '/en/',
   },
   integrations: [
     starlight({

@@ -79,11 +79,11 @@ export default defineConfig({
               fr: 'GEOSTIX APP',
               en: 'GEOSTIX APP',
             },
-            link: '/geostix_app',
+            link: '/app',
             icon: 'smartphoneIcon',
             items: [
-              'geostix_app',
-              { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['geostix_app/nmea_output'] },
+              'app',
+              { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['app/nmea_output'] },
             ],
             /*badge: {
               text: {

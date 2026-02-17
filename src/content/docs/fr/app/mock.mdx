@@ -1,0 +1,50 @@
+---
+title: Position fictive (mock)
+description: Utiliser l'application GEOSTIX APP comme fournisseur de position fictive sur Android pour partager la position précise du récepteur avec d'autres applications.
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+La fonctionnalité de **position fictive** (mock location) d'Android permet à une application de remplacer la position GPS intégrée de l'appareil par une source de localisation externe. En activant la position fictive dans l'application GEOSTIX APP, vous rendez la position GNSS précise du récepteur GEOSTIX accessible à **toutes les applications de votre appareil** — applications de cartographie, outils SIG de terrain, navigation ou toute autre application géolocalisée — sans que celles-ci aient besoin de prendre en charge les récepteurs GNSS Bluetooth.
+
+<Aside type="caution" title="Android uniquement">
+La position fictive est disponible uniquement sur Android. iOS ne permet pas aux applications tierces de remplacer la position système.
+</Aside>
+
+## Définir l'application GEOSTIX APP comme fournisseur de position fictive
+
+Avant d'activer la position fictive dans l'application, vous devez autoriser l'application GEOSTIX APP à fournir des positions fictives au niveau du système Android.
+
+<Steps>
+
+1. **Activez les Options pour les développeurs sur votre appareil.**
+
+    Accédez à **Paramètres > À propos du téléphone** (ou **Informations sur le logiciel** sur certains appareils) et appuyez 7 fois sur le **Numéro de build**. Un message confirmera que les Options pour les développeurs sont désormais activées.
+
+2. **Sélectionnez l'application GEOSTIX APP comme application de position fictive.**
+
+    Accédez à **Paramètres > Système > Options pour les développeurs** (le chemin exact peut varier selon le fabricant) et appuyez sur **Sélectionner l'application de position fictive**. Choisissez **GEOSTIX** dans la liste.
+
+</Steps>
+
+<Aside type="note">
+Cette configuration ne doit être effectuée qu'une seule fois. La sélection du fournisseur de position fictive est conservée jusqu'à ce que vous la modifiiez.
+</Aside>
+
+## Activer la position fictive dans l'application GEOSTIX APP
+
+<Steps>
+
+1. **Ouvrez l'onglet Réglages.**
+
+    Dans l'application GEOSTIX APP, accédez à l'onglet **Réglages**.
+
+2. **Activez la Position fictive.**
+
+    Appuyez sur **Position fictive** et activez l'interrupteur. L'application transmettra alors la position du récepteur à Android comme position de l'appareil.
+
+</Steps>
+
+<Aside type="tip">
+Le réglage de la position fictive est conservé entre les redémarrages de l'application. Il reste actif jusqu'à ce que vous le désactiviez explicitement.
+</Aside>

@@ -84,6 +84,7 @@ export default defineConfig({
             items: [
               'app',
               { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['app/nmea'] },
+              { label: 'Features', translations: { fr: 'Fonctionnalités' }, items: ['app/mock'] },
             ],
             /*badge: {
               text: {

@@ -1,0 +1,50 @@
+---
+title: Location mock
+description: Use the GEOSTIX APP as a mock location provider on Android to share the receiver's precise position with other apps.
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Android's **mock location** feature allows an app to replace the device's built-in GPS position with an external location source. By enabling location mock in the GEOSTIX APP, you make the GEOSTIX receiver's precise GNSS position available to **any app on your device** — mapping apps, GIS field tools, navigation, or any other location-based application — without those apps needing to support Bluetooth GNSS receivers directly.
+
+<Aside type="caution" title="Android only">
+Location mock is only available on Android. iOS does not allow third-party apps to override the system location.
+</Aside>
+
+## Set the GEOSTIX APP as mock location provider
+
+Before enabling location mock in the app, you must allow the GEOSTIX APP to provide mock locations at the Android system level.
+
+<Steps>
+
+1. **Enable Developer Options on your device.**
+
+    Go to **Settings > About phone** (or **Software information** on some devices) and tap the **Build number** 7 times. A message will confirm that Developer Options are now enabled.
+
+2. **Select the GEOSTIX APP as mock location app.**
+
+    Go to **Settings > System > Developer options** (the exact path may vary by device manufacturer) and tap **Select mock location app**. Choose **GEOSTIX** from the list.
+
+</Steps>
+
+<Aside type="note">
+This is a one-time setup. The mock location provider selection persists until you change it.
+</Aside>
+
+## Enable location mock in the GEOSTIX APP
+
+<Steps>
+
+1. **Open the Settings tab.**
+
+    In the GEOSTIX APP, navigate to the **Settings** tab.
+
+2. **Enable Location Mock.**
+
+    Tap **Location Mock** and toggle the switch on. The app will now feed the receiver's position to Android as the device location.
+
+</Steps>
+
+<Aside type="tip">
+The location mock setting is retained across app restarts. It remains active until you explicitly disable it.
+</Aside>

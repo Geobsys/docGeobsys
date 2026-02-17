@@ -1,0 +1,46 @@
+---
+title: Antenna height
+description: Configure the antenna height in the GEOSTIX APP to obtain accurate ground-level coordinates.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+When using a GNSS receiver, the position is computed at the **Antenna Phase Center (APC)**, not at the ground point. The APC is the electrical point inside the antenna dome where the GNSS signal is effectively measured.
+
+The **Antenna Reference Point (ARP)** is the physical reference point on the receiver — on the GEOSTIX, this is the base of the 5/8" thread mount. The vertical distance between the ARP and the APC is a fixed offset specific to each receiver model.
+
+If the GEOSTIX is mounted on a surveying pole, you must enter the total distance from the ground to the APC so the app can compute the correct ground-level elevation.
+
+## ARP to APC offset
+
+On the GEOSTIX, the APC is located **0.17 m (170 mm)** above the ARP. This offset must be included when entering the antenna height.
+
+<div style="display: flex; justify-content: center;">
+    <img src="/images/app/geostix_phase_center.png" alt="GEOSTIX phase center offset: 170 mm from base socket to antenna phase center" width="250" />
+</div>
+
+For example, if your surveying pole is **2.00 m** tall (from ground to the base socket), the total antenna height to enter in the app is:
+
+> 2.00 m + 0.17 m = **2.17 m**
+
+<Aside type="caution">
+If you are not using a pole and the GEOSTIX is placed directly on the ground, you should still set the antenna height to **0.17 m** to account for the phase center offset.
+</Aside>
+
+## Setting the antenna height in the app
+
+On the main page (map view), tap the antenna height button at the bottom right of the screen.
+
+<div style="display: flex; justify-content: center;">
+    <img src="/images/app/antenna_height_button.png" alt="Antenna height button on the GEOSTIX APP map view" width="300" />
+</div>
+
+A dialog opens where you can enter the total height **h** from the ground to the antenna phase center (pole height + 0.17 m) in meters, then tap **Save**.
+
+<div style="display: flex; justify-content: center;">
+    <img src="/images/app/pole_height_dialog.png" alt="Pole Height dialog in the GEOSTIX APP" width="300" />
+</div>
+
+<Aside type="note">
+The default value is **0.17 m**, which corresponds to the GEOSTIX placed directly on the ground with no pole.
+</Aside>

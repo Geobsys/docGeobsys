@@ -1,0 +1,46 @@
+---
+title: Hauteur d'antenne
+description: Configurer la hauteur d'antenne dans l'application GEOSTIX APP pour obtenir des coordonnées précises au niveau du sol.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Lors de l'utilisation d'un récepteur GNSS, la position est calculée au **centre de phase de l'antenne (APC — Antenna Phase Center)**, et non au point au sol. L'APC est le point électrique à l'intérieur du dôme de l'antenne où le signal GNSS est effectivement mesuré.
+
+Le **point de référence de l'antenne (ARP — Antenna Reference Point)** est le point de référence physique du récepteur — sur le GEOSTIX, il s'agit de la base de l'embase de fixation (filetage 5/8"). La distance verticale entre l'ARP et l'APC est un décalage fixe propre à chaque modèle de récepteur.
+
+Si le GEOSTIX est monté sur une canne d'arpentage, vous devez renseigner la distance totale entre le sol et l'APC pour que l'application puisse calculer l'altitude correcte au niveau du sol.
+
+## Décalage ARP vers APC
+
+Sur le GEOSTIX, l'APC est situé à **0.17 m (170 mm)** au-dessus de l'ARP. Ce décalage doit être pris en compte lors de la saisie de la hauteur d'antenne.
+
+<div style="display: flex; justify-content: center;">
+    <img src="/images/app/geostix_phase_center.png" alt="Décalage du centre de phase du GEOSTIX : 170 mm entre l'embase et le centre de phase de l'antenne" width="250" />
+</div>
+
+Par exemple, si votre canne d'arpentage mesure **2.00 m** (du sol à l'embase de fixation), la hauteur d'antenne totale à saisir dans l'application est :
+
+> 2.00 m + 0.17 m = **2.17 m**
+
+<Aside type="caution">
+Si vous n'utilisez pas de canne et que le GEOSTIX est posé directement au sol, vous devez tout de même renseigner une hauteur d'antenne de **0.17 m** pour tenir compte du décalage du centre de phase.
+</Aside>
+
+## Régler la hauteur d'antenne dans l'application
+
+Sur la page principale (vue carte), appuyez sur le bouton de hauteur d'antenne en bas à droite de l'écran.
+
+<div style="display: flex; justify-content: center;">
+    <img src="/images/app/antenna_height_button.png" alt="Bouton de hauteur d'antenne sur la vue carte de l'application GEOSTIX APP" width="300" />
+</div>
+
+Une boîte de dialogue s'ouvre pour saisir la hauteur totale **h** du sol au centre de phase de l'antenne (hauteur de canne + 0.17 m) en mètres, puis appuyez sur **Save**.
+
+<div style="display: flex; justify-content: center;">
+    <img src="/images/app/pole_height_dialog.png" alt="Boîte de dialogue Pole Height dans l'application GEOSTIX APP" width="300" />
+</div>
+
+<Aside type="note">
+La valeur par défaut est **0.17 m**, ce qui correspond au GEOSTIX posé directement au sol sans canne.
+</Aside>

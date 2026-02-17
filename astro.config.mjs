@@ -83,6 +83,7 @@ export default defineConfig({
             icon: 'smartphoneIcon',
             items: [
               'app',
+              { label: 'Survey', translations: { fr: 'Levé' }, items: ['app/antenna-height'] },
               { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['app/nmea'] },
               { label: 'Features', translations: { fr: 'Fonctionnalités' }, items: ['app/mock'] },
             ],

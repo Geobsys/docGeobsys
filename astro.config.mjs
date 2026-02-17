@@ -83,7 +83,7 @@ export default defineConfig({
             icon: 'smartphoneIcon',
             items: [
               'app',
-              { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['app/nmea_output'] },
+              { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['app/nmea'] },
             ],
             /*badge: {
               text: {

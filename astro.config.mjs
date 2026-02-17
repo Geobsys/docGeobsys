@@ -59,12 +59,12 @@ export default defineConfig({
               fr: 'ETAGES CAPTEURS',
               en: 'GEOSTIX LAYERS',
             },
-            link: '/geostix_layers',
+            link: '/layers',
             icon: 'layerIcon',
             items: [
-              'geostix_layers',
-              { label: 'LTE Layer', translations: { fr: 'Étage 4G/LTE' }, items: ['geostix_layers/layer4g/description','geostix_layers/layer4g/configuration','geostix_layers/layer4g/configuration_ntrip'] },
-              { label: 'Hotshoe Layer', translations: { fr: 'Étage Flash' }, items: ['geostix_layers/hotshoe/description'] },
+              'layers',
+              { label: 'LTE Layer', translations: { fr: 'Étage 4G/LTE' }, items: ['layers/layer4g/description','layers/layer4g/configuration','layers/layer4g/configuration_ntrip'] },
+              { label: 'Hotshoe Layer', translations: { fr: 'Étage Flash' }, items: ['layers/hotshoe/description'] },
             ],
             /*badge: {
               text: {

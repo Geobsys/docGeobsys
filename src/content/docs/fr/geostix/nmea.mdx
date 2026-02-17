@@ -1,0 +1,31 @@
+---
+title: Sortie NMEA
+description: Messages NMEA disponibles sur le récepteur GEOSTIX et leur description.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Le récepteur GEOSTIX émet des messages NMEA 0183 standard via Bluetooth. Ces messages contiennent des informations de positionnement, de satellites et de temps utilisées par les applications de topographie et SIG.
+
+## Messages NMEA disponibles
+
+| Message | Description |
+|---------|-------------|
+| **GGA** | Position, qualité du fix, nombre de satellites et HDOP |
+| **GLL** | Latitude, longitude et heure UTC |
+| **GNS** | Données de fix multi-constellation avec indicateurs de mode par constellation |
+| **GSA** | Satellites actifs et dilution de précision (PDOP, HDOP, VDOP) |
+| **GST** | Écarts-types d'erreur de position (latitude, longitude, hauteur) |
+| **GSV** | Satellites en vue avec élévation, azimut et niveau de signal |
+| **RMC** | Position, vitesse, cap et date |
+| **ZDA** | Date/heure UTC complète et décalage horaire local |
+
+Chaque message peut être configuré individuellement pour émettre à une fréquence spécifique : **Off**, **5 Hz**, **1 Hz**, **0,5 Hz** ou **0,1 Hz**. Consultez le guide de [configuration des sorties NMEA](/fr/geostix_app/nmea_output/) pour les instructions de paramétrage.
+
+<Aside type="caution" title="Configuration minimale pour le levé topographique">
+Pour utiliser l'application GEOSTIX APP pour des opérations de levé, la configuration NMEA suivante est requise :
+
+- **GGA** et **GST** doivent être réglés à la **même fréquence** (par exemple, tous les deux à 5 Hz)
+- **RMC** doit être réglé à **1 Hz ou plus**
+- **GSA** et **GSV** doivent être réglés à **1 Hz ou moins**
+</Aside>

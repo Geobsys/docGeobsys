@@ -1,0 +1,31 @@
+---
+title: NMEA output
+description: NMEA messages available on the GEOSTIX receiver and their description.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+The GEOSTIX receiver outputs standard NMEA 0183 messages over Bluetooth. These messages carry positioning, satellite, and timing information used by survey and GIS applications.
+
+## Available NMEA messages
+
+| Message | Description |
+|---------|-------------|
+| **GGA** | Position, fix quality, number of satellites, and HDOP |
+| **GLL** | Latitude, longitude, and UTC time |
+| **GNS** | Multi-constellation fix data with per-constellation mode indicators |
+| **GSA** | Active satellites and dilution of precision (PDOP, HDOP, VDOP) |
+| **GST** | Position error standard deviations (latitude, longitude, height) |
+| **GSV** | Satellites in view with elevation, azimuth, and signal strength |
+| **RMC** | Position, speed, course, and date |
+| **ZDA** | Full UTC date/time and local time zone offset |
+
+Each message can be configured individually to output at a specific rate: **Off**, **5 Hz**, **1 Hz**, **0.5 Hz**, or **0.1 Hz**. See the [NMEA output configuration](/en/geostix_app/nmea_output/) guide for instructions on how to change these settings.
+
+<Aside type="caution" title="Minimum requirements for surveying">
+To use the GEOSTIX APP for surveying operations, the following NMEA output configuration is required:
+
+- **GGA** and **GST** must be set to the **same frequency** (e.g., both at 5 Hz)
+- **RMC** must be set to **1 Hz or more**
+- **GSA** and **GSV** must be set to **1 Hz or less**
+</Aside>

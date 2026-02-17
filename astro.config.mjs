@@ -49,6 +49,7 @@ export default defineConfig({
             items: [
               'geostix',
               { label: 'Getting started', translations: { fr: 'Pour commencer' }, items: ['geostix/quick_guide', 'geostix/leds', 'geostix/communication', 'geostix/geostix-x5'] },
+              { label: 'Specifications', translations: { fr: 'Spécifications' }, items: ['geostix/nmea'] },
               { label: 'Integrations', translations: { fr: 'Intégrations' }, items: ['geostix/dji_rtk'] },
               //{ label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
             ],
@@ -81,8 +82,8 @@ export default defineConfig({
             link: '/geostix_app',
             icon: 'smartphoneIcon',
             items: [
-              //{ label: 'Start Here', items: ['geostix_app/getting-started'] },
-              //{ label: 'Guides', autogenerate: { directory: 'geostix_app/guides' } },
+              'geostix_app',
+              { label: 'Receiver configuration', translations: { fr: 'Configuration du récepteur' }, items: ['geostix_app/nmea_output'] },
             ],
             /*badge: {
               text: {

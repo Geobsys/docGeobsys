@@ -1,0 +1,69 @@
+---
+title: NMEA output
+description: Configure which NMEA messages are sent by the GEOSTIX receiver and at what frequency using the GEOSTIX APP.
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+This guide explains how to configure the NMEA messages output by the GEOSTIX receiver over Bluetooth using the GEOSTIX APP.
+
+<Aside type="tip" title="Prerequisites">
+- A GEOSTIX receiver connected via the GEOSTIX APP
+- Expert Mode enabled in the app settings
+</Aside>
+
+## Enable Expert Mode
+
+<Steps>
+
+1. **Open the Settings tab.**
+
+    In the GEOSTIX APP, navigate to the **Settings** tab.
+
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/nmea_output/settings_en.png" width="300" />
+    </div>
+
+2. **Enable Expert Mode.**
+
+    Toggle the **Expert Mode** switch at the bottom of the screen. This unlocks advanced configuration options, including the NMEA output settings.
+
+</Steps>
+
+## Configure NMEA output rates
+
+<Steps>
+
+1. **Connect to your GEOSTIX.**
+
+    From the app, connect to your GEOSTIX receiver. See the [quick guide](/en/geostix/quick_guide/) for help.
+
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/nmea_output/receiver_en.png" width="300" />
+    </div>
+
+2. **Open the NMEA Output screen.**
+
+    From the **Receiver** screen, tap **NMEA Output**. This screen lists all configurable NMEA messages and their current output rate.
+
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/nmea_output/nmea_list_en.png" width="300" />
+    </div>
+
+3. **Adjust the output rate for each message.**
+
+    Tap the rate value next to any message to change it. Available rates are: **Off**, **5 Hz**, **1 Hz**, **0.5 Hz**, and **0.1 Hz**.
+
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <img src="/images/nmea_output/nmea_rates_en.png" width="300" />
+    </div>
+
+4. **Reset to defaults (optional).**
+
+    Tap **Reset to defaults** at the bottom of the screen to restore the factory NMEA output configuration.
+
+</Steps>
+
+<Aside type="note" title="NMEA messages reference">
+For a description of each NMEA message and the minimum requirements for surveying, see the [NMEA output](/en/geostix/nmea/) page.
+</Aside>

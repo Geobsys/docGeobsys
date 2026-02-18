@@ -57,15 +57,15 @@ puis sauvegarder les paramètres via la commande :
 Le GEOSTIX doit répondre **OK**.<br/>Il est possible de vérifier à nouveau la configuration avec la commande **Sl**.<br/>
 La prise en compte des nouvelles options requiert un redémarrage du GEOSTIX (possible via la commande **Hr** ou en utilisant le bouton On/Off de l'embase mobile).
 
-|PARAMETRE|VALEUR|valeur par défaut|
+|PARAMETRE|DESCRIPTION|Valeur par défaut|
 |:---|---:|---:|
-|ntripClientSendPositionToCaster|en cas de base virtuelle|FALSE|
+|ntripClientSendPositionToCaster|1 en cas de VRS|0|
 |ntripClientAuthParams|paramètres d'authentification|""|
 |ntripClientMountpoint|point de montage sur lequel récupérer les corrections|""|
 |ntripClientCasterPort|port utilisé par le caster, généralement 2101|0|
 |ntripClientCasterHostname|adresse IP ou le nom de domaine pointant vers le caster|""|
 |ntripClientCasterVersion|version 1 ou 2 du NTRIP utilisée par le caster|0|
-|ntripClientEnabled|1 pour activer le mode client et 0 pour le désactiver sans perdre les configurations|FALSE|
+|ntripClientEnabled|1 pour activer le mode client et 0 pour le désactiver sans perdre les configurations|0|
 
 <Aside type="note" title="ntripClientAuthParams">
   Les paramètres d'authentification qui sont sous la forme d'un couple **nom d'utilisateur:mot de passe** doivent être encodés en **base64**. 
@@ -77,7 +77,7 @@ Par exemple, pour se connecter au caster [Centipède](https://docs.centipede.fr/
 
 *Au niveau de Centipède, l'authentification n'est pas obligatoire mais on peut mettre **centipede:centipede** ce qui donne en base64 : **Y2VudGlwZWRlOmNlbnRpcGVkZQ==***
 
-Ss ntripClientSendPositionToCaster FALSE<br/>
+Ss ntripClientSendPositionToCaster 0<br/>
 Ss ntripClientAuthParams Y2VudGlwZWRlOmNlbnRpcGVkZQ==<br/>
 ou sans authentification :<br/>
 Ss ntripClientAuthParams<br/>

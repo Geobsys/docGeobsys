@@ -56,15 +56,15 @@ Then save the settings with:
 The GEOSTIX should respond with **OK**.<br/>You can verify the configuration again using **Sl**.<br/>
 Changes require a device restart to take effect (via **Hr** or the On/Off button on the mobile base).
 
-|PARAMETER|VALUE|Default|
+|PARAMETER|DESCRIPTION|Default value|
 |:---|---:|---:|
-|ntripClientSendPositionToCaster|if using a virtual base|FALSE|
+|ntripClientSendPositionToCaster|1 if using a VRS|0|
 |ntripClientAuthParams|authentication parameters|""|
 |ntripClientMountpoint|mountpoint from which to receive corrections|""|
 |ntripClientCasterPort|caster port, usually 2101|0|
 |ntripClientCasterHostname|IP or domain of the caster|""|
 |ntripClientCasterVersion|NTRIP version 1 or 2|0|
-|ntripClientEnabled|1 to enable client mode, 0 to disable while keeping the settings|FALSE|
+|ntripClientEnabled|1 to enable client mode, 0 to disable while keeping the settings|0|
 
 <Aside type="note" title="ntripClientAuthParams">
   Authentication parameters, in the format **username:password**, must be **base64-encoded**.
@@ -76,7 +76,7 @@ Example for connecting to the [Centipède caster](https://docs.centipede.fr/):
 
 *Authentication is optional, but you may use **centipede:centipede**, encoded as **Y2VudGlwZWRlOmNlbnRpcGVkZQ==***
 
-Ss ntripClientSendPositionToCaster FALSE<br/>
+Ss ntripClientSendPositionToCaster 0<br/>
 Ss ntripClientAuthParams Y2VudGlwZWRlOmNlbnRpcGVkZQ==<br/>
 ou sans authentification :<br/>
 Ss ntripClientAuthParams<br/>
@@ -107,7 +107,7 @@ A restart is required for the changes to take effect (via **Hr** or the On/Off b
 |ntripServerCasterPort|caster port, usually 2101|0|
 |ntripServerCasterHostname|IP or domain of the caster|""|
 |ntripServerCasterVersion|NTRIP version 1 or 2|0|
-|ntripServerEnabled|1 to enable server mode, 0 to disable while keeping the settings|FALSE|
+|ntripServerEnabled|1 to enable server mode, 0 to disable while keeping the settings|0|
 
 <Aside type="note" title="ntripServerAuthParams">
   In NTRIP version 1, only the **password** is required and must be in plain text (no username). 

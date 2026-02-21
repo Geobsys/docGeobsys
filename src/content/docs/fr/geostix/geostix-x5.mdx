@@ -5,49 +5,36 @@ description: ce petit guide permet d'exploiter rapidement les capacités du GEOS
 
 Le GEOSTIX-X5 est basé sur le module GNSS [Mosaic-X5](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5) de Septentrio. Il se distingue des autres modèles GEOSTIX par plusieurs fonctionnalités additionnelles :
 
-## Spécifique au GEOSTIX-X5
+## Interface de configuration web
 
-import { Steps } from '@astrojs/starlight/components';
+**Ethernet par USB :**
+lorsque le GEOSTIX est connecté à un PC via le câble USB-magnétique, il permet d'accéder aux paramètres du module via un simple navigateur web à l'adresse [192.168.3.1](http://192.168.3.1/).
 
-<Steps>
+<img src="/images/geostix-x5/interfaceSeptentrio.png" style="display: block; margin: auto;" />
 
-1. **Ethernet par USB :**
-    lorsque le GEOSTIX est connecté à un PC via le câble USB-magnétique, il permet d'accéder aux paramètres du module via un simple navigateur web à l'adresse [192.168.3.1](http://192.168.3.1/).
-    <img src="/images/geostix-x5/interfaceSeptentrio.png" style="display: block; margin: auto;" />
+## Accéder aux données enregistrées
 
-   
-2. **Enregistrement de données :**
-    Le module est équipé de sa propre carte SD pour l'enregistrement des données RINEX ou au format propriétaire Septentrio (*.sbf).
+Le GEOSTIX-X5 dispose d'une carte SD intégrée qui enregistre automatiquement les données RINEX à 1 Hz de manière journalière.
 
-    Accès à la carte SD :
+Lorsqu'il est connecté à un PC via le câble USB-magnétique, la carte SD est exposée comme un périphérique de stockage de masse. Elle contient le répertoire **SSN/GRB0051** (GRB0051 est le nom de code du Mosaic-X5).
 
-    La carte SD est accessible lorsque le GEOSTIX est connecté à un PC via le câble USB-magnétique.
-    
-    Elle apparaît comme un disque contenant le répertoire **SSN/GRB0051** (GRB0051 étant le nom de code du Mosaic-X5)
-    
-    **Organisation des enregistrements :**
+**Structure des répertoires :**
+Les sessions sont stockées dans des sous-répertoires nommés **AAJJJ**, où :
+- AA — année du premier enregistrement
+- JJJ — jour de l'année du premier enregistrement
 
-    Chaque session d'enregistrement est classée dans un sous-répertoire nommé AAJJJ, où :
-    - AA représente l'année du premier enregistrement.
-    - JJJ représente le jour de l'année du premier enregistrement.
-    
-    À l'intérieur de ces répertoires, les fichiers sont nommés selon la convention suivante : **gstxJJJX.AAo** ou **gstxJJJX.AAp**  
-    - JJJ et AA correspondent respectivement au jour et à l'année du premier enregistrement.
-    - X correspond au numéro de la session dans la journée :
-    - 0 pour un enregistrement couvrant une journée complète.
-    De 1 à 9, puis de A à O pour les sessions horaires (de la 1ère à la 24ème heure).
+**Convention de nommage des fichiers :**
+Les fichiers suivent le format **gstxJJJX.AAo** (observations) ou **gstxJJJX.AAp** (éphémérides), où :
+- JJJ et AA — jour et année du premier enregistrement
+- X — identifiant de la session dans la journée :
+  - `0` pour un enregistrement couvrant une journée complète
+  - `1`–`9` puis `A`–`O` pour les sessions horaires (de la 1ère à la 24ème heure)
 
-    **gstxJJJX.AAo** correspond aux observations
-
-    **gstxJJJX.AAp** correspond aux éphémérides 
-
-</Steps>
-
-import { Aside } from '@astrojs/starlight/components';
+import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## Configurer la sauvegarde automatique des RINEX
 
-<Aside type="tip" title="GEOSTIX-X5 - enregistrement des RINEX">
+<Aside type="tip" title="Paramètres par défaut">
   Par défaut, le GEOSTIX-X5 sauvegarde les RINEX de manière journalière avec une fréquence de 1 Hz.
 </Aside>
 

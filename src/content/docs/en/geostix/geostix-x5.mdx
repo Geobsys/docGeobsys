@@ -5,43 +5,36 @@ description: this quick guide helps you rapidly leverage the GEOSTIX-X5 capabili
 
 The GEOSTIX-X5 is based on Septentrio's [Mosaic-X5](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5) GNSS module. It stands out from other GEOSTIX models with several additional features:
 
-## Specific to GEOSTIX-X5
+## Web configuration interface
 
-import { Steps } from '@astrojs/starlight/components';
+**Ethernet via USB:**
+when the GEOSTIX is connected to a PC via the magnetic USB cable, it provides access to the module's settings through a simple web browser at [192.168.3.1](http://192.168.3.1/).
 
-<Steps>
-1. **Ethernet via USB:**
-    when the GEOSTIX is connected to a PC via the magnetic USB cable, it provides access to the module's settings through a simple web browser at [192.168.3.1](http://192.168.3.1/).
-    <img src="/images/geostix-x5/interfaceSeptentrio.png" style="display: block; margin: auto;" />
-   
-2. **Data recording:**
-    The module is equipped with its own SD card for recording RINEX data or in Septentrio's proprietary format (*.sbf).
-    
-    SD card access:
-    The SD card is accessible when the GEOSTIX is connected to a PC via the magnetic USB cable.
-    
-    It appears as a disk containing the directory **SSN/GRB0051** (GRB0051 being the Mosaic-X5 code name)
-    
-    **Recording organization:**
-    Each recording session is organized in a subdirectory named YYDDD, where:
-    - YY represents the year of the first recording.
-    - DDD represents the day of the year of the first recording.
-    
-    Within these directories, files are named according to the following convention: **gstxDDDX.YYo** or **gstxDDDX.YYp**  
-    - DDD and YY correspond respectively to the day and year of the first recording.
-    - X corresponds to the session number within the day:
-    - 0 for a recording covering a full day.
-    - From 1 to 9, then from A to O for hourly sessions (from the 1st to the 24th hour).
-    
-    **gstxDDDX.YYo** corresponds to observations
-    **gstxDDDX.YYp** corresponds to ephemerides 
-</Steps>
+<img src="/images/geostix-x5/interfaceSeptentrio.png" style="display: block; margin: auto;" />
 
-import { Aside } from '@astrojs/starlight/components';
+## Accessing recorded data
+
+The GEOSTIX-X5 features a built-in SD card that automatically records RINEX data at 1 Hz on a daily basis.
+
+When connected to a PC via the magnetic USB cable, the SD card is exposed as a mass storage device. It contains the directory **SSN/GRB0051** (GRB0051 is the Mosaic-X5 code name).
+
+**Directory structure:**
+Sessions are stored in subdirectories named **YYDDD**, where:
+- YY — year of the first recording
+- DDD — day of the year of the first recording
+
+**File naming convention:**
+Files follow the pattern **gstxDDDX.YYo** (observations) or **gstxDDDX.YYp** (ephemerides), where:
+- DDD and YY — day and year of the first recording
+- X — session identifier within the day:
+  - `0` for a full-day recording
+  - `1`–`9` then `A`–`O` for hourly sessions (hours 1 through 24)
+
+import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## Configure automatic RINEX saving
 
-<Aside type="tip" title="GEOSTIX-X5 - RINEX recording">
+<Aside type="tip" title="Default settings">
   By default, the GEOSTIX-X5 saves RINEX data daily with a 1 Hz frequency.
 </Aside>
 

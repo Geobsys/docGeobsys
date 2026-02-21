@@ -1,0 +1,67 @@
+---
+title: Spécifications GEOSTIX-U9
+description: Spécifications matérielles du récepteur GNSS GEOSTIX-U9
+---
+
+Le GEOSTIX-U9 est construit autour du module GNSS Unicore UM981s et offre un positionnement RTK triple fréquence avec un taux de mise à jour de la navigation pouvant atteindre 50 Hz. Il cible les applications professionnelles de levé et de cartographie nécessitant une précision centimétrique avec un large support de constellations.
+
+import { Aside } from '@astrojs/starlight/components';
+
+| Paramètre | Valeur |
+|---|---|
+| Module GNSS | Unicore UM981s |
+| Fréquences | Triple |
+| Canaux | 1408 |
+| Taux de mise à jour | Jusqu'à 50 Hz |
+| Précision RTK (H / V) | 8 mm + 1 PPM / 15 mm + 1 PPM |
+| Précision PPP (H / V) | 20 cm / 40 cm (Galileo HAS) |
+| Mesure d'inclinaison | Oui (< 2,5 cm dans 30°) |
+| Connectivité | USB, Bluetooth 4.2, Wi-Fi 5 |
+| Batterie | LiPo 2600 mAh — jusqu'à 13 h |
+| Stockage | μSD jusqu'à 32 Go |
+| Poids | 160 g |
+| Fixation | Filetage 5/8" × 11 TPI |
+| Hauteur du centre de phase | 17 cm depuis le bas |
+
+## Performances GNSS
+
+Le GEOSTIX-U9 suit toutes les grandes constellations — GPS, GLONASS, Galileo, BeiDou, QZSS et SBAS — simultanément sur trois fréquences, avec 1408 canaux disponibles. Il délivre jusqu'à 50 Hz de fréquence de sortie de position.
+
+En mode RTK, la précision horizontale atteint **8 mm + 1 PPM** et verticale **15 mm + 1 PPM**. En utilisant le service Galileo HAS (High Accuracy Service) pour le PPP, il atteint **20 cm horizontal / 40 cm vertical** sans station de base ni abonnement à un service de correction. La mesure d'inclinaison est prise en charge via l'IMU intégré, avec une précision inférieure à 2,5 cm dans une plage d'inclinaison de 30°.
+
+## Conception physique
+
+Le GEOSTIX-U9 partage le même format cylindrique compact que tous les modèles GEOSTIX : **14 cm de hauteur, 4 cm de diamètre, et 160 g**. Le boîtier est conçu pour une utilisation sur le terrain et peut être transporté dans une poche ou monté sur une canne de mesure.
+
+**Fixation — filetage 5/8" :** La base du GEOSTIX est équipée d'un filetage standard **5/8" × 11 TPI**, compatible avec les cannes de géomètre, les trépieds et la plupart des accessoires de montage professionnels. Cela permet de le positionner facilement en tant que rover sur une canne ou en tant que station de base sur un trépied.
+
+**Port de charge magnétique :** L'alimentation et les données transitent par un connecteur USB magnétique situé sur le côté de l'appareil. Le GEOSTIX se charge depuis n'importe quelle source USB 5V standard.
+
+**Batterie interne :** L'appareil fonctionne avec une batterie LiPo interne (2600 mAh, 3,7 V, 9,6 Wh), offrant jusqu'à **13 heures** d'autonomie dans des conditions de terrain typiques.
+
+**Stockage amovible :** Un emplacement pour carte μSD (jusqu'à 32 Go, 8 Go inclus) permet l'enregistrement local de données GNSS brutes directement sur l'appareil.
+
+## Compensation d'inclinaison
+
+Le GEOSTIX-U9 intègre une compensation d'inclinaison reposant sur un IMU (Inertial Measurement Unit) embarqué. Cela permet à l'appareil de calculer une position au sol précise même lorsque la canne n'est pas parfaitement verticale — sans avoir à niveler la canne.
+
+La compensation d'inclinaison est efficace dans une plage de **30°**, avec une précision de position inférieure à **2,5 cm** dans ces conditions. Cela accélère considérablement les levés en terrain difficile où le nivellement est peu pratique, comme sur des pentes, près de murs ou en végétation dense.
+
+## Antenne interne
+
+Le GEOSTIX-U9 est équipé d'une antenne hélicoïdale multi-fréquences sur mesure, intégrée en haut de l'appareil. Cette antenne de haute qualité est spécialement conçue pour maximiser les performances de suivi sur l'ensemble des constellations et fréquences supportées. Le centre de phase de l'antenne — le point de référence électrique à partir duquel les mesures GNSS sont effectuées — est situé à **17 cm du bas** de l'appareil (la base du filetage 5/8").
+
+Lors de la mise en place du GEOSTIX sur une canne ou un trépied, mesurez toujours la hauteur jusqu'au **bas de l'appareil** et ajoutez 17 cm pour obtenir la hauteur correcte de l'antenne au-dessus du sol. Cette valeur doit être saisie dans l'application GEOSTIX ou votre logiciel de collecte de données pour garantir un positionnement précis.
+
+<Aside type="caution" title="Hauteur d'antenne">
+  Tenez toujours compte du décalage de 17 cm du centre de phase lors de la saisie de la hauteur d'antenne dans votre logiciel de levé. Mesurer jusqu'au bas de l'appareil et ajouter 17 cm donne la hauteur correcte de l'ARP (Antenna Reference Point).
+</Aside>
+
+## Numéro de série
+
+Le numéro de série de votre GEOSTIX-U9 est imprimé sur une étiquette située à **l'arrière de l'appareil**. Il est également accessible depuis l'application GEOSTIX.
+
+
+## Connectivité
+
+Le GEOSTIX-U9 communique via **USB, Bluetooth 4.2** (BLE et BR/EDR) et **Wi-Fi 5**. Format de données en entrée : RTCM v3.x pour les corrections RTK. Les formats de sortie incluent NMEA, les messages propriétaires Unicore, RTCM v3.x et RINEX v3.x.

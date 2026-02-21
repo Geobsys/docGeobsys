@@ -1,0 +1,60 @@
+---
+title: GEOSTIX-X5 Specifications
+description: Hardware specifications for the GEOSTIX-X5 GNSS receiver
+---
+
+The GEOSTIX-X5 is the most advanced model in the GEOSTIX range. It is built around the Septentrio mosaic-X5 GNSS module and offers the highest accuracy and reliability, including resilience to jamming and spoofing. It is aimed at applications where signal integrity and repeatability are critical.
+
+import { Aside } from '@astrojs/starlight/components';
+
+| Parameter | Value |
+|---|---|
+| GNSS module | Septentrio mosaic-X5 |
+| Frequencies | Triple |
+| Channels | 448 |
+| Update rate | Up to 100 Hz |
+| RTK accuracy (H / V) | 6 mm + 0.5 PPM / 10 mm + 1 PPM |
+| PPP accuracy | — |
+| Connectivity | USB, Bluetooth 4.2, Wi-Fi 5 |
+| Battery | LiPo 2600 mAh — up to 8 h |
+| Storage | μSD up to 32 GB + internal module storage |
+| Weight | 160 g |
+| Mounting | 5/8" × 11 TPI thread |
+| Antenna phase center height | 17 cm from bottom |
+
+## GNSS Performance
+
+The GEOSTIX-X5 tracks GPS, GLONASS, Galileo, BeiDou, QZSS, SBAS, and L-Band on three frequencies, with 448 channels available. The navigation update rate reaches up to **100 Hz**, making it suitable for high-dynamic applications.
+
+RTK accuracy is **6 mm + 0.5 PPM horizontal** and **10 mm + 1 PPM vertical**.
+
+## Physical Design
+
+The GEOSTIX-X5 shares the same housing as all GEOSTIX models: **14 cm tall, 4 cm in diameter, and 160 g**. All mounting accessories and poles are fully compatible across models.
+
+**Mounting — 5/8" thread:** The base of the GEOSTIX features a standard **5/8" × 11 TPI** threaded socket, compatible with surveying poles, tripods, and most professional mounting accessories. This makes it straightforward to set up as a rover on a range pole or as a base station on a tripod.
+
+**Magnetic charging port:** Power and data are transferred through a magnetic USB connector on the side of the unit. The GEOSTIX charges from any standard 5V USB source.
+
+**Internal battery:** The unit runs on an internal LiPo cell (2600 mAh, 3.7 V, 9.6 Wh), providing up to **8 hours** of autonomy.
+
+**Removable storage:** A μSD card slot (supporting cards up to 32 GB, 8 GB included) allows local logging of raw GNSS data. Additionally, the mosaic-X5 module itself features its own **built-in internal storage** for autonomous RINEX and SBF recording, independent of the μSD card. See the [GEOSTIX-X5 page](/en/geostix/geostix-x5/) for details on accessing recorded data.
+
+## Internal Antenna
+
+The GEOSTIX-X5 uses a custom-made multi-frequency helical antenna integrated at the top of the unit. This high-quality antenna is specifically designed to maximize tracking performance across all supported constellations and frequencies. The antenna phase center — the electrical reference point from which GNSS measurements are made — is located **17 cm from the bottom** of the device (the base of the 5/8" thread).
+
+When setting up the GEOSTIX on a pole or tripod, always measure the height to the **bottom of the device** and add 17 cm to obtain the correct antenna height above ground. This value must be entered in the GEOSTIX App or your data collection software to ensure accurate positioning.
+
+<Aside type="caution" title="Antenna height">
+  Always account for the 17 cm phase center offset when entering antenna height in your survey software. Measuring to the bottom of the device and adding 17 cm gives the correct ARP (Antenna Reference Point) height.
+</Aside>
+
+## Serial Number
+
+The serial number of your GEOSTIX-X5 is printed on a label located on the **back of the device**. It is also accessible through the GEOSTIX App.
+
+
+## Connectivity
+
+The GEOSTIX-X5 communicates via **USB, Bluetooth 4.2** (both BLE and BR/EDR), and **Wi-Fi 5**. When connected via the magnetic USB cable, the mosaic-X5 module also provides an **Ethernet-over-USB** interface, giving access to the Septentrio web configuration interface at [192.168.3.1](http://192.168.3.1/). Input data format: RTCM v3.x for RTK corrections. Output formats include NMEA, Septentrio proprietary messages, RTCM v3.x, and RINEX v3.x.

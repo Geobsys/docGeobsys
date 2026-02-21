@@ -1,0 +1,60 @@
+---
+title: Spécifications GEOSTIX-X5
+description: Spécifications matérielles du récepteur GNSS GEOSTIX-X5
+---
+
+Le GEOSTIX-X5 est le modèle le plus avancé de la gamme GEOSTIX. Il est construit autour du module GNSS Septentrio mosaic-X5 et offre la précision et la fiabilité les plus élevées, notamment une résistance au brouillage et à l'usurpation de signal. Il s'adresse aux applications où l'intégrité du signal et la répétabilité sont critiques.
+
+import { Aside } from '@astrojs/starlight/components';
+
+| Paramètre | Valeur |
+|---|---|
+| Module GNSS | Septentrio mosaic-X5 |
+| Fréquences | Triple |
+| Canaux | 448 |
+| Taux de mise à jour | Jusqu'à 100 Hz |
+| Précision RTK (H / V) | 6 mm + 0,5 PPM / 10 mm + 1 PPM |
+| Précision PPP | — |
+| Connectivité | USB, Bluetooth 4.2, Wi-Fi 5 |
+| Batterie | LiPo 2600 mAh — jusqu'à 8 h |
+| Stockage | μSD jusqu'à 32 Go + stockage interne du module |
+| Poids | 160 g |
+| Fixation | Filetage 5/8" × 11 TPI |
+| Hauteur du centre de phase | 17 cm depuis le bas |
+
+## Performances GNSS
+
+Le GEOSTIX-X5 suit GPS, GLONASS, Galileo, BeiDou, QZSS, SBAS et L-Band sur trois fréquences, avec 448 canaux disponibles. Le taux de mise à jour de la navigation atteint jusqu'à **100 Hz**, ce qui le rend adapté aux applications à haute dynamique.
+
+La précision RTK est de **6 mm + 0,5 PPM horizontal** et **10 mm + 1 PPM vertical**.
+
+## Conception physique
+
+Le GEOSTIX-X5 partage le même boîtier que tous les modèles GEOSTIX : **14 cm de hauteur, 4 cm de diamètre, et 160 g**. Tous les accessoires de montage et les cannes sont entièrement compatibles entre les modèles.
+
+**Fixation — filetage 5/8" :** La base du GEOSTIX est équipée d'un filetage standard **5/8" × 11 TPI**, compatible avec les cannes de géomètre, les trépieds et la plupart des accessoires de montage professionnels. Cela permet de le positionner facilement en tant que rover sur une canne ou en tant que station de base sur un trépied.
+
+**Port de charge magnétique :** L'alimentation et les données transitent par un connecteur USB magnétique situé sur le côté de l'appareil. Le GEOSTIX se charge depuis n'importe quelle source USB 5V standard.
+
+**Batterie interne :** L'appareil fonctionne avec une batterie LiPo interne (2600 mAh, 3,7 V, 9,6 Wh), offrant jusqu'à **8 heures** d'autonomie.
+
+**Stockage amovible :** Un emplacement pour carte μSD (jusqu'à 32 Go, 8 Go inclus) permet l'enregistrement local de données GNSS brutes. De plus, le module mosaic-X5 dispose de son propre **stockage interne** pour l'enregistrement autonome de données RINEX et SBF, indépendamment de la carte μSD. Consultez la [page GEOSTIX-X5](/fr/geostix/geostix-x5/) pour les détails sur l'accès aux données enregistrées.
+
+## Antenne interne
+
+Le GEOSTIX-X5 est équipé d'une antenne hélicoïdale multi-fréquences sur mesure, intégrée en haut de l'appareil. Cette antenne de haute qualité est spécialement conçue pour maximiser les performances de suivi sur l'ensemble des constellations et fréquences supportées. Le centre de phase de l'antenne — le point de référence électrique à partir duquel les mesures GNSS sont effectuées — est situé à **17 cm du bas** de l'appareil (la base du filetage 5/8").
+
+Lors de la mise en place du GEOSTIX sur une canne ou un trépied, mesurez toujours la hauteur jusqu'au **bas de l'appareil** et ajoutez 17 cm pour obtenir la hauteur correcte de l'antenne au-dessus du sol. Cette valeur doit être saisie dans l'application GEOSTIX ou votre logiciel de collecte de données pour garantir un positionnement précis.
+
+<Aside type="caution" title="Hauteur d'antenne">
+  Tenez toujours compte du décalage de 17 cm du centre de phase lors de la saisie de la hauteur d'antenne dans votre logiciel de levé. Mesurer jusqu'au bas de l'appareil et ajouter 17 cm donne la hauteur correcte de l'ARP (Antenna Reference Point).
+</Aside>
+
+## Numéro de série
+
+Le numéro de série de votre GEOSTIX-X5 est imprimé sur une étiquette située à **l'arrière de l'appareil**. Il est également accessible depuis l'application GEOSTIX.
+
+
+## Connectivité
+
+Le GEOSTIX-X5 communique via **USB, Bluetooth 4.2** (BLE et BR/EDR) et **Wi-Fi 5**. Lorsqu'il est connecté via le câble USB magnétique, le module mosaic-X5 fournit également une interface **Ethernet-over-USB**, donnant accès à l'interface de configuration web Septentrio à l'adresse [192.168.3.1](http://192.168.3.1/). Format de données en entrée : RTCM v3.x pour les corrections RTK. Les formats de sortie incluent NMEA, les messages propriétaires Septentrio, RTCM v3.x et RINEX v3.x.

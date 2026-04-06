@@ -1,0 +1,61 @@
+---
+title: GEOSTIX avec des applications Android tierces
+description: Utiliser le GEOSTIX avec des applications Android tierces via Bluetooth ou la position fictive, et empêcher les optimisations de batterie Android d'interrompre le client NTRIP.
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Les applications Android tierces (cartographie, SIG, topographie) n'ont pas besoin de prendre en charge NTRIP directement. L'application GEOSTIX APP gère la connexion NTRIP et rend la position corrigée RTK disponible pour d'autres applications de deux façons :
+
+- **Bluetooth** : l'application tierce se connecte directement au récepteur GEOSTIX comme source GNSS Bluetooth externe.
+- **Position fictive** : l'application GEOSTIX APP fournit la position corrigée à Android comme position système de l'appareil, la rendant disponible pour toutes les applications. Consultez le [guide de position fictive](/fr/app/mock/).
+
+<Aside type="caution" title="Android uniquement">
+La position fictive est disponible uniquement sur Android.
+</Aside>
+
+## Maintenir le client NTRIP actif en arrière-plan
+
+Lorsque vous basculez vers une application tierce, l'application GEOSTIX APP passe en arrière-plan. Le système d'optimisation de batterie d'Android peut alors la ralentir ou la terminer, interrompant le client NTRIP et coupant les corrections RTK.
+
+Pour éviter cela, désactivez les optimisations de batterie pour l'application GEOSTIX APP.
+
+<Steps>
+
+1. **Ouvrez les Paramètres Android.**
+
+    Accédez aux **Paramètres** de votre appareil Android.
+
+2. **Trouvez l'application GEOSTIX APP.**
+
+    Appuyez sur **Applications** (ou **Applications et notifications**, selon votre version Android), puis trouvez et appuyez sur **GEOSTIX** dans la liste.
+
+3. **Ouvrez les paramètres de batterie de l'application.**
+
+    Appuyez sur **Batterie** (ou **Batterie et données**).
+
+4. **Sélectionnez "Non restreinte".**
+
+    Choisissez **Non restreinte** (ou **Ne pas optimiser**, selon votre version Android). Cela permet à l'application GEOSTIX APP de fonctionner normalement en arrière-plan sans être ralentie ou arrêtée par Android.
+
+</Steps>
+
+<Aside type="note" title="Différences selon les versions Android">
+Le chemin exact et la terminologie varient selon la version Android et le fabricant de l'appareil (Samsung, Xiaomi, Huawei, etc.). Sur certains appareils, cherchez **Optimisation de la batterie**, **Exclusions de l'économiseur d'énergie** ou des paramètres similaires. Vous pouvez également rechercher "batterie" dans la barre de recherche des Paramètres Android.
+</Aside>
+
+<Aside type="caution" title="Chemin alternatif">
+Vous pouvez également accéder à ce paramètre depuis **Paramètres → Batterie → Optimisation de la batterie** (ou **Économiseur de batterie → Gérer les exceptions**). Changez le filtre sur **Toutes les applications**, trouvez **GEOSTIX** et choisissez **Ne pas optimiser**.
+</Aside>
+
+## Vérifier le fonctionnement en arrière-plan
+
+Après avoir désactivé les optimisations de batterie :
+
+1. Démarrez le client NTRIP dans l'application GEOSTIX APP et confirmez que le récepteur atteint le statut **RTK FIX**.
+2. Basculez vers votre application tierce (l'application GEOSTIX APP passe en arrière-plan).
+3. Confirmez que l'application tierce continue de recevoir une position précise et actualisée.
+
+<Aside type="tip" title="Garder l'écran allumé">
+Certains appareils Android appliquent des restrictions supplémentaires lorsque l'écran s'éteint, indépendamment des paramètres d'optimisation de batterie. Si le client NTRIP se déconnecte encore, envisagez de garder l'écran allumé pendant votre session en utilisant l'option développeur **Rester actif** (**Paramètres → Système → Options pour les développeurs → Rester actif**).
+</Aside>

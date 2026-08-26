@@ -48,7 +48,7 @@ export default defineConfig({
             icon: 'geostixIcon',
             items: [
               'geostix',
-              { label: 'Getting started', translations: { fr: 'Pour commencer' }, items: ['geostix/quick_guide', 'geostix/leds', 'geostix/communication', 'geostix/geostix-x5'] },
+              { label: 'Getting started', translations: { fr: 'Pour commencer' }, items: ['geostix/quick_guide', 'geostix/leds', 'geostix/power-toggle', 'geostix/communication', 'geostix/geostix-x5'] },
               { label: 'Specifications', translations: { fr: 'Spécifications' }, items: ['geostix/specs-u9', 'geostix/specs-x5', 'geostix/nmea'] },
               { label: 'Integrations', translations: { fr: 'Intégrations' }, items: ['geostix/thirdparty-android', 'geostix/dji_rtk'] },
               //{ label: 'Guides', autogenerate: { directory: 'geostix/guides' } },
